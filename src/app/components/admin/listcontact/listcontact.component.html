@@ -1,0 +1,40 @@
+<div class="panel-heading">
+    List user
+</div>
+<div class="panel-body">
+
+<div class="cart-page-container">
+  
+    <div class="cart-page-content"  >
+      <input type="text" class="form-control" id="recherhe" name="recherche" placeholder="recherche par EMAIL/NOM" (keyup)="filter($event)" >
+      <table >
+        <thead>
+        <tr>
+          <th>name</th>
+          <th>Email</th>
+          <th>subject</th>
+          <th>description</th>
+          <th>Action</th>
+
+        </tr>
+    </thead>
+    <tbody *ngFor="let cart of products2;let i = index">
+
+         <tr>
+          <td>   
+            {{cart.name}}           
+        </td>
+          <td>{{cart.email}}</td>
+          <td>{{cart.subject}}</td>
+          <td>{{cart.description}}</td>
+          <td><button mat-raised-button   class="btn-project" (click)="removeFromCart(cart)">delete</button></td>
+
+        </tr>
+     </tbody>
+        </table>
+         
+         
+         
+    </div>
+    
+  </div></div>

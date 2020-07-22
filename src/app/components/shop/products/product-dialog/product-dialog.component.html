@@ -1,0 +1,48 @@
+
+<div class="product-dialog">
+
+  <div class="close-btn-outer">
+    <button mat-mini-fab color="warn" (click)="close()"><mat-icon>close</mat-icon></button>
+  </div>
+  <div mat-dialog-content>
+    <div fxLayout="row wrap" >
+        <div fxFlex="100" fxFlex.gt-sm="50">
+            <div class="swiper-container h-100">
+                <div class="swiper-wrapper">
+                  <img src="assets/images/about-us/ettayeb.png" alt="" class="img-fluid">
+                </div>
+
+            </div>
+        </div>
+        <div fxFlex="100" fxFlex.gt-sm="50" ngClass.gt-sm="px-2 m-0" ngClass.sm="mt-2" ngClass.xs="mt-2">
+          <div class="product-right">
+              <div class="product-details">
+                  <h2 class="mb-10">Projet accompagné par: 
+                     </h2>
+                 <h3 class="price mb-10">Ing. Yasser Souilmi</h3>
+                <div class="discription">
+                  <p class="bold">Note:</p>
+                  <div class="stars">
+                    <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+                    <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+                    <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+                    <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+                    <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+                 </div>
+                  <mat-card fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start start"  class="p-0">
+                    <div class="item">
+                      <h2>CV</h2>
+                      <ul>
+                        <li fxLayout="row"><i class="material-icons">check</i><span>Ingénieur agronome spécialiste en gestion des ressources naturelles </span> </li>
+                        <li fxLayout="row"><i class="material-icons">check</i><span>Meilleure innovation 2016 dans INNOVATION CAMP, de INJAZ Tunisia. </span></li>
+                        <li fxLayout="row"><i class="material-icons">check</i><span>Dernier poste: Coordinateur des projets dans l'Observatoire Tunisien de l'Eau</span></li>
+                       </ul>
+                    </div>
+                  </mat-card>
+                 </div>
+            </div>
+            
+    </div>
+  </div>
+
+  </div>

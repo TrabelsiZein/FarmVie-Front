@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="checkout sec-padding">
+      <div fxLayout="row wrap" class="" *ngIf="product">
+          
+          <div class="mainOrder-wrapper pl-15" fxFlex="100" fxFlex.gt-md="30" fxFlex.md="30">
+            <div class="main-order " >
+              <div class="order-box">
+                  
+                  <ul class="price-list" *ngIf='buyProducts.length'>
+                    <li *ngFor="let item of buyProducts">
+                       {{ product.nomProjet }}  
+                      <span>
+                       {{ product.montantTotal  }} DT
+                        </span>
+                    </li>
+                </ul>
+                <ul class="total-amount">
+                  <li>
+                    Montant collecté: <span class="amount">  
+                       {{montantreste}} dt
+                     </span>
+                  </li>
+                  
+              </ul>
+                <ul class="total-amount">
+                  <li>
+                    Je participe de  <span class="amount">  
+                       
+                      <input class="w-100" matInput placeholder="montantMin" #name="ngModel" name="montantMin" [(ngModel)]="montantMin" required>
+                    </span>
+                  </li>
+                  
+              </ul>
+              
+            <div class="paymentFinal">
+              <mat-radio-group>
+                <mat-radio-button fxLayout="column" *ngFor="let payment of paymantWay" [value]="payment">{{payment}}</mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div class="order">
+              <button class="btn-project" mat-raised-button color="accent" type="submit" (click)="addToCart(product)">PLACE ORDER</button>
+            </div>
+               </div>
+          </div>
+          </div>
+
+       </div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+<app-main-carousel [slides]="slides"></app-main-carousel>
+<div class="home-1-wrap">
+
+  <div class="info-bar-four-wrapper">
+    <div class="container">
+      <div fxLayout="row wrap" class="info-bar-four">
+        <div class="card-wrap" fxFlex="100" fxFlex.gt-md="25" fxFlex.gt-xs="50">
+          <mat-card class="light-block" fxLayout="row" fxLayoutAlign="start center">
+            <mat-icon class="mat-icon-xlg  m-0">looks_one</mat-icon>
+            <div class="content">
+              <p>CREER</p>
+              <span class="text-muted m-0">votre compte FarmVie</span>
+            </div>
+          </mat-card>
+        </div>
+        <div class="card-wrap" fxFlex="100" fxFlex.gt-md="25" fxFlex.gt-xs="50">
+          <mat-card class="light-block" fxLayout="row" fxLayoutAlign="start center">
+            <mat-icon class="mat-icon-xlg  m-0">looks_two</mat-icon>
+            <div class="content">
+              <p>INVESTIR</p>
+              <span class="text-muted m-0">dans l'agriculture de demain</span>
+            </div>
+          </mat-card>
+        </div>
+        <div class="card-wrap" fxFlex="100" fxFlex.gt-md="25" fxFlex.gt-xs="50">
+          <mat-card class="light-block" fxLayout="row" fxLayoutAlign="start center">
+            <mat-icon class="mat-icon-xlg m-0">looks_3</mat-icon>
+            <div class="content">
+              <p>SURVEILLER</p>
+              <span class="text-muted m-0">votre ferme en ligne</span>
+            </div>
+          </mat-card>
+        </div>
+        <div class="card-wrap" fxFlex="100" fxFlex.gt-md="25" fxFlex.gt-xs="50">
+          <mat-card class="light-block no-bd" fxLayout="row" fxLayoutAlign="start center">
+            <mat-icon class="mat-icon-xlg m-0">looks_4</mat-icon>
+            <div class="content">
+              <p>RECOLTER</p>
+              <span class="text-muted m-0">les fruits de votre investissement</span>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="products sec-padding">
+      <div class="products-four">
+
+        <h3>Projets récents</h3>
+        <app-product-carousel [product]="products | slice:0:8"></app-product-carousel>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="main-banner">
+    <app-banner-promotion></app-banner-promotion>
+  </div>
+  <div class="container">
+    <app-product-vertical [products]="products"></app-product-vertical>
+  </div>
+
+  <div class="blog-section sec-padding">
+    <div class="container">
+      <div class="section-title">
+        <h3>Nos Experts</h3>
+
+      </div>
+
+      <app-blog-section></app-blog-section>
+    </div>
+  </div>
+
+</div>

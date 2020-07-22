@@ -1,0 +1,43 @@
+<div class="panel-heading">
+  List user
+</div>
+<div class="panel-body">
+
+<div class="cart-page-container">
+
+  <div class="cart-page-content"  >
+    <input type="text" class="form-control" id="recherhe" name="recherche" placeholder="recherche par EMAIL/NOM" (keyup)="filter($event)" >
+    <table >
+      <thead>
+      <tr>
+        <th>Photo</th>
+        <th>Email</th>
+        <th>Nom</th>
+        <th>Role</th>
+
+        <th>Numtel</th>
+        <th>Action</th>
+
+      </tr>
+  </thead>
+  <tbody *ngFor="let cart of products2;let i = index">
+
+       <tr>
+        <td>                <img class="cart-item-thumbnail" [src]=getSantizeUrl(cart.photo) style="width: 50px;
+          height: 50px;"/>
+      </td>
+        <td>{{cart.email}}</td>
+        <td>{{cart.name}}</td>
+        <td>{{cart.roles[0].name}}</td>
+        <td>{{cart.numtel}}</td>
+        <td><button mat-raised-button   class="btn-project" (click)="removeFromCart(cart)">delete</button></td>
+
+      </tr>
+   </tbody>
+      </table>
+       
+       
+       
+  </div>
+  
+</div></div>

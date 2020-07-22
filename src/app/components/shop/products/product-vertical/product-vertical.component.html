@@ -1,0 +1,82 @@
+<div class="vertical-products sec-padding">
+  <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start start" class="p-0">
+      <div fxFlex="100" fxFlex.gt-xs="33.3" class="product-panel">
+        <div class="widget-column">
+            <div class="title">
+                <h4 class="widget-title">Production animale</h4>
+              </div>
+              <ul class="product-list">
+                <li *ngFor="let product of product2 | slice:0:3 " fxLayout="row">
+                  <div class="media-image">
+                    <a [routerLink]="['/home/product', product.id]"><img [src]="product.photoProjet" class="small" alt=""> </a>
+                  </div>
+                  <div class="media-body">
+                    <a [routerLink]="['/home/product', product.id]"><span>{{product.nomProjet}}</span></a>
+                    <!-- <div class="stars">
+                        <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+                        <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+                        <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+                        <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+                        <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+                     </div> -->
+                     <br>
+                     <br>                       
+                     <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                     <p class="price">{{product.montantTotal | number : '1.2-2' }} DT</p>
+                  </div>
+                </li>
+              </ul>
+        </div>
+      </div>
+      <div fxFlex="100" fxFlex.gt-xs="33.3" class="product-panel">
+          <div class="widget-column">
+              <div class="title">
+                  <h4 class="widget-title">Production végétale</h4>
+                </div>
+                <ul class="product-list">
+                  <li *ngFor="let product of product2 | slice:3:6 " fxLayout="row">
+                    <div class="media-image">
+                      <a [routerLink]="['/home/product', product.id]"><img [src]="product.photoProjet" class="small" alt=""> </a>
+                    </div>
+                    <div class="media-body">
+                      <a [routerLink]="['/home/product', product.id]"><span>{{product.nomProjet}}</span></a>
+                      <!-- <div class="stars">
+                          <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+                          <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+                          <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+                          <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+                          <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
+                       </div> -->
+                       <br>
+                       <br>                       
+                       <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                       <p class="price">{{product.montantTotal | number : '1.2-2'}} DT</p>
+                    </div>
+                  </li>
+                </ul>
+          </div>
+        </div>
+        <div fxFlex="100" fxFlex.gt-xs="33.3" class="product-panel">
+            <div class="widget-column">
+                <div class="title">
+                    <h4 class="widget-title">Innovation</h4>
+                  </div>
+                  <ul class="product-list">
+                    <li *ngFor="let product of product2 | slice:6:9 " fxLayout="row">
+                      <div class="media-image">
+                        <a ><img [routerLink]="['/home/product', product.id]" [src]="product.photoProjet" class="small" alt=""> </a>
+                      </div>
+                      <div class="media-body">
+                       <a [routerLink]="['/home/product', product.id]"><span>{{product.nomProjet}}</span></a>
+                       <br>
+                       <br>                       
+                       <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+      
+                       <p class="price">{{product.montantTotal | number : '1.2-2'}} DT</p>
+                      </div>
+                    </li>
+                  </ul>
+            </div>
+          </div>
+  </div>
+</div>

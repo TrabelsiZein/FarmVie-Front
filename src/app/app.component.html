@@ -1,0 +1,57 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="sophia-app">
+  <mat-sidenav-container fullscreen>
+    <mat-toolbar class="main-topbar" *ngIf="valueLogin==1 && test2!=2">
+      <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center" class="top-bar container">
+
+        <div fxLayout="row">
+          <div class="widget-text">
+            <a mat-button [matMenuTriggerFor]="langMenu" #langMenuTrigger="matMenuTrigger">
+              <img [src]="flag.image" width="18">
+              <span fxShow="false" fxShow.gt-sm class="flag-menu-title">{{flag.name}}</span>
+              <mat-icon class="mat-icon-sm caret cur-icon">arrow_drop_down</mat-icon>
+            </a>
+            <mat-menu #langMenu="matMenu" [overlapTrigger]="false" xPosition="before" class="app-dropdown">
+              <span>
+                <button mat-menu-item *ngFor="let flag of flags" (click)="changeLang(flag)">
+                  <img [src]="flag.image" width="18"> {{flag.name}}
+                </button>
+              </span>
+            </mat-menu>
+          </div>
+        </div>
+
+
+        <div class="widget-text" *ngIf="tokenn==null" >
+          <a style="margin-right: 10px;margin-left: 10px;" fxShow="false" fxShow.gt-xs [routerLink]="['/inscrit']" routerLinkActive="router-link-active" >
+            <mat-icon>group_add</mat-icon>Inscription
+          </a>
+          <a style="margin-right: 10px;margin-left: 10px;" fxShow="false" fxShow.gt-xs (click)="logins()" routerLinkActive="router-link-active">
+            <mat-icon>how_to_reg</mat-icon>Connexion
+          </a>
+
+        </div>
+        <div class="widget-text" *ngIf="tokenn!=null" >
+          <a style="margin-right: 10px;margin-left: 10px;" fxShow="false" fxShow.gt-xs [routerLink]="['/profile']" routerLinkActive="router-link-active">
+            <mat-icon>person</mat-icon>Profil
+          </a>
+          <a style="margin-right: 10px;margin-left: 10px;" fxShow="false" fxShow.gt-xs routerLinkActive="router-link-active" (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>Déconnexion
+          </a>
+        </div>
+
+
+
+
+
+      </mat-toolbar-row>
+
+    </mat-toolbar>
+    <app-header-three *ngIf="valueLogin==1 && test2!=2"></app-header-three>
+    <app-navadmin *ngIf="test2==2"></app-navadmin>
+    <router-outlet></router-outlet>
+    <app-footer-two *ngIf="valueLogin==1 &&test2!=2"></app-footer-two>

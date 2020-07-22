@@ -1,0 +1,123 @@
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+<ul  class="nav nav-tabs"  >
+    <li *ngFor="let cart of Projects;let i = index" id="prj1"  (click)="changeTo(cart.idProjet,cart.nomProjet)"><a  data-toggle="tab"> {{cart.nomProjet}}</a></li>
+</ul>
+<div class="tab-content">
+ 
+    <button (click)="onClick()" class="btn btn-lg" style="background-color:#60b67a;color: #ffffff;margin-top: 30px; margin-left: 20px;" type="submit">Nouvelle publication </button>
+
+  
+<div *ngIf="create" class="panel" style="margin-left: 10%;margin-right: 10%;margin-top: 2%;margin-bottom: 5%;border-color:#60b67a;">
+
+  <div class="panel-heading" style="background: #60b67a;color: #ffffff" >
+  </div>
+
+
+  <form #f="ngForm" (ngSubmit)="onUpload(f)" novalidate>
+  <div class="panel-body">
+
+    <div class="row">
+
+
+      <div class="col-lg-8">
+        <label> <b>Type d'actualité</b> </label>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-info"></i>
+          </div>
+          <select class="form-control select2" style="width: 100%;" type="text" name="type" ngModel>
+            <option style="display:none" value="">Séléctionner le type du projet </option>
+            <option value="Production animale"> Production animale </option>
+            <option value="Production végétale"> Production végétale </option>
+            <option value="Transformation"> Transformation </option>
+            <option value="Société de services"> Société de services </option>                
+            <option value="Innovation"> Innovation </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <label> <b>Photo</b> </label>
+        <div class="input-group">
+          <input type="file" name="photo" ngModel (change)="onFileChanged($event)"  accept="image/*">
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <br>
+
+
+    <div class="row">
+      <div class="col-lg-12">
+          <label > <b>Description</b> </label>
+          <textarea class="form-control" name="description" ngModel  rows="2" required=true></textarea> 
+     </div>     
+    </div>
+
+
+  </div>
+
+  <div class="panel-footer">
+
+    <div class="text-right">
+      <button class="btn btn-lg" style="background-color:#60b67a;color: #ffffff" type="submit"> Publier </button>
+    </div>
+
+  </div>
+</form>
+</div>
+
+
+
+<div class="panel-body">
+
+<div class="cart-page-container">
+  
+    <div class="cart-page-content"  >
+      <input type="text" class="form-control" id="recherhe" name="recherche" placeholder="recherche par Etat projet/Nom projet/type projet/emailUser " (keyup)="filter($event)" >
+      <table >
+        <thead>
+        <tr>
+          <th>Theme</th>
+          <th>Description</th>
+          <th>Photo</th>
+          <th>Ingénieur</th>
+          <th>Projet</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let cart of Actualites;let i = index">
+
+         <tr>
+          <td style="text-align: center;"> {{cart.subject}}</td>
+          <td style="text-align: center;">{{cart.description}}</td>
+
+          <td style="text-align: center;" > <img class="cart-item-thumbnail" [src]=getSantizeUrl(cart.photo) style="width: 50px;
+            height: 50px;"/>
+        </td>
+          <td style="text-align: center;">{{cart.ingName}}</td>
+          <td style="text-align: center;">{{cart.projectName}}</td>
+
+
+        </tr>
+     </tbody>
+        </table>
+         
+         
+         
+    </div>
+    
+  </div></div>
+  
+
+</div>

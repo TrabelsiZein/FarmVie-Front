@@ -1,0 +1,562 @@
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+    
+    <!-- color: #333;
+    background: black;
+    border-color: #ddd; -->
+<div class="panel" style="margin-left: 10%;margin-right: 10%;margin-top: 2%;margin-bottom: 5%;border-color:#60b67a;">
+
+  <div class="panel-heading" style="background: #60b67a;color: #ffffff" >
+    <h1 class="panel-title"> <span> Création d'un nouveau projet </span> </h1>
+  </div>
+
+
+  <form #f="ngForm" (ngSubmit)="onUpload(f)" novalidate>
+  <div class="panel-body">
+
+    <div class="row">
+
+
+      <div class="col-lg-9">
+        <div class="row">
+          <div class="col-lg-6">
+            <label> <b>Nom de Projet</b> </label>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <i class="fa fa-info"></i>
+              </div>
+              <input type="text" name="nom" ngModel class="form-control" value='' required=true>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <label> <b>Type de Projet</b> </label>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <i class="fa fa-info"></i>
+              </div>
+              <select class="form-control select2" style="width: 100%;" type="text" name="type" ngModel>
+                <option style="display:none" value="">Séléctionner le type du projet </option>
+                <option value="Production animale"> Production animale </option>
+                <option value="Production végétale"> Production végétale </option>
+                <option value="Transformation"> Transformation </option>
+                <option value="Société de services"> Société de services </option>                
+                <option value="Innovation"> Innovation </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <label> <b>Photo de Projet</b> </label>
+        <div class="input-group">
+          <input type="file" name="photo" ngModel (change)="onFileChanged($event)"  accept="image/*">
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+    <br>
+
+    <div class="row">
+
+      <div class="col-lg-12">
+        <label><b>Description Détaillée du projet</b> </label>
+        <textarea class="form-control" name="description" ngModel rows="2" required=true></textarea>
+      </div>
+
+    </div>
+
+    <br>
+
+    <div class="row">
+
+      <div class="col-lg-6">
+        <label> <b>Gouvernorat</b> </label>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-map-marker"></i>
+          </div>
+          <select class="form-control select2" style="width: 100%;" type="text" name="gouv" ngModel>
+            <option style="display:none" value="">Séléctionner le gouvernorat </option>
+            <option  value="1" > Ariana</option>
+            <option  value="2" > Béja</option>
+            <option  value="3" > Ben Arous</option>
+            <option  value="4" > Bizerte</option>
+            <option  value="5" > Gabès</option>
+            <option  value="6" > Gafsa</option>
+            <option  value="7" > Jendouba</option>
+            <option  value="8" > Kairouan</option>
+            <option  value="9" > Kasserine</option>
+            <option  value="10" > Kébili</option>
+            <option  value="11" > Le Kef</option>
+            <option  value="12" > Mahdia</option>
+            <option  value="13" > La Manouba</option>
+            <option  value="14" > Médenine</option>
+            <option  value="15" > Monastir</option>
+            <option  value="16" > Nabeul</option>
+            <option  value="17" > Sfax</option>
+            <option  value="18" > Sidi Bouzid</option>
+            <option  value="19" > Siliana</option>
+            <option  value="20" > Sousse</option>
+            <option  value="21" > Tataouine</option>
+            <option  value="22" > Tozeur</option>
+            <option  value="23" > Tunis</option>
+            <option  value="24" > Zaghouan</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="col-lg-6">
+        <label> <b>Ville</b> </label>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-location-arrow"></i>
+          </div>
+          <select class="form-control select2" style="width: 100%;" type="text" name="ville" ngModel>
+            <option style="display:none" value="">Séléctionner le ville </option>
+            <option value="1" class="11">RAOUED</option>
+            <option value="1" class="12"> SIDI THABET</option>
+            <option value="1" class="13">ARIANA VILLE</option>
+            <option value="1" class="14">LA SOUKRA</option>
+            <option value="1" class="14">KALAAT LANDLOUS</option>
+            <option value="1" class="15">ETTADHAMEN</option>
+            <option value="1" class="16">MNIHLA</option>
+
+              <option value="2" class="21">BEJA NORD</option>
+              <option value="2" class="22">NEFZA</option>
+              <option value="2" class="23">GOUBELLAT</option>
+              <option value="2" class="24">MEJEZ EL BAB</option>
+              <option value="2" class="25">AMDOUN</option>
+              <option value="2" class="26">TEBOURSOUK</option>
+              <option value="2" class="27">TESTOUR</option>
+              <option value="2" class="28">THIBAR</option>
+              <option value="2" class="29">BEJA SUD</option>
+
+               <option value="3" class="31">EZZAHRA</option>
+              <option value="3"  class="32">MOHAMADIA</option>
+              <option value="3"  class="33">RADES</option>
+              <option value="3"  class="34">EL MOUROUJ</option>
+              <option value="3"  class="35">FOUCHANA</option>
+              <option value="3"  class="36">HAMMAM CHATT</option>
+              <option value="3"  class="37">HAMMAM LIF</option>
+              <option value="3"  class="38">MEGRINE</option>
+              <option value="3"  class="39">NOUVELLE MEDINA</option>
+              <option value="3"  class="310">MORNAG</option>
+              <option value="3"  class="311">BOU MHEL EL BASSATINE</option>
+              <option value="3"  class="312">BEN AROUS</option>
+
+
+               <option value="4" class="41">MENZEL BOURGUIBA</option>
+              <option value="4" class="42">UTIQUE</option>
+              <option value="4" class="43">MENZEL JEMIL</option>
+              <option value="4" class="44">BIZERTE NORD</option>
+              <option value="4" class="45">BIZERTE SUD</option>
+              <option value="4" class="46">EL ALIA</option>
+              <option value="4" class="47">SEJNANE</option>
+              <option value="4" class="48">GHAR EL MELH</option>
+              <option value="4" class="49">GHEZALA</option>
+              <option value="4" class="410">JARZOUNA</option>
+              <option value="4" class="411">JOUMINE</option>
+              <option value="4" class="412">MATEUR</option>
+              <option value="4" class="413">RAS JEBEL</option>
+              <option value="4" class="414">TINJA</option>
+
+
+              <option value="5" class="51">EL METOUIA</option>
+              <option value="5"  class="52">GABES MEDINA</option>
+              <option value="5"  class="53">GABES OUEST</option>
+              <option value="5" class="54">GABES SUD</option>
+              <option value="5" class="55">EL HAMMA</option>
+              <option value="5" class="56">NOUVELLE MATMATA</option>
+              <option value="5" class="57">MARETH</option>
+              <option value="5" class="58">GHANNOUCHE</option>
+              <option value="5" class="59">MATMATA</option>
+              <option value="5" class="510">MENZEL HABIB</option>
+
+
+              <option value="6" class="61" >BELKHIR</option>
+              <option value="6" class="62">EL GUETTAR</option>
+              <option value="6" class="63">EL KSAR</option>
+              <option value="6" class="64">EL MDHILLA</option>
+              <option value="6" class="65">SNED</option>
+              <option value="6" class="66">MOULARES</option>
+              <option value="6" class="67">REDEYEF</option>
+              <option value="6" class="68">SIDI AICH</option>
+              <option value="6" class="69">GAFSA SUD</option>
+              <option value="6" class="610">METLAOUI</option>
+              <option value="6" class="611">GAFSA NORD</option>
+
+
+               <option value="7" class="71">FERNANA</option>
+              <option value="7" class="72">GHARDIMAOU</option>
+              <option value="7" class="73">TABARKA</option>
+              <option value="7" class="74">JENDOUBA</option>
+              <option value="7" class="75">JENDOUBA NORD</option>
+              <option value="7" class="76">AIN DRAHAM</option>
+              <option value="7" class="77">OUED MLIZ</option>
+              <option value="7" class="78">BOU SALEM</option>
+              <option value="7" class="79">BALTA BOU AOUENE</option>
+
+
+                <option value="8" class="81">SBIKHA</option>
+                <option value="8" class="82">KAIROUAN SUD</option>
+                <option value="8" class="83">OUESLATIA</option>
+                <option value="8" class="84">NASRALLAH</option>
+                <option value="8" class="85">KAIROUAN NORD</option>
+                <option value="8" class="86">EL ALA</option>
+                <option value="8" class="87">HAJEB EL AYOUN</option>
+                <option value="8" class="88">CHEBIKA</option>
+                <option value="8" class="89">HAFFOUZ</option>
+                <option value="8" class="810">CHERARDA</option>
+                <option value="8"class="811">BOU HAJLA</option>
+
+                  <option value="9" class="91">HAIDRA</option>
+                  <option value="9" class="92">SBEITLA</option>
+                  <option value="9" class="93">MEJEL BEL ABBES</option>
+                  <option value="9" class="94">KASSERINE NORD</option>
+                  <option value="9" class="95">EL AYOUN</option>
+                  <option value="9" class="96">EZZOUHOUR</option>
+                  <option value="9" class="97">FERIANA</option>
+                  <option value="9" class="98">FOUSSANA</option>
+                  <option value="9" class="99">HASSI EL FRID</option>
+                  <option value="9" class="910">JEDILIANE</option>
+                  <option value="9" class="911">KASSERINE SUD</option>
+                  <option value="9" class="912">SBIBA</option>
+                  <option value="9" class="913">THALA</option>
+
+
+                  <option value="10" class="101">SOUK EL AHAD</option>
+                  <option value="10" class="102">KEBILI SUD</option>
+                  <option value="10" class="103">KEBILI NORD</option>
+                  <option value="10" class="103">DOUZ</option>
+                  <option value="10" class="104">EL FAOUAR</option>
+
+
+                  <option value="11" class="111">TAJEROUINE</option>
+                  <option value="11"  class="112">TOUIREF</option>
+                  <option value="11"  class="113">NEBEUR</option>
+                  <option value="11"  class="114">SAKIET SIDI YOUSSEF</option>
+                  <option value="11"  class="115">LE SERS</option>
+                  <option value="11"  class="116">EL KSOUR</option>
+                  <option value="11"  class="117">LE KEF EST</option>
+                  <option value="11"  class="118">DAHMANI</option>
+                  <option value="11"  class="119">KALAAT SINANE</option>
+                  <option value="11"  class="1110">JERISSA</option>
+                  <option value="11"  class="1111">KALAA EL KHASBA</option>
+                  <option value="11"  class="1112">LE KEF OUEST</option>
+
+
+                   <option value="12"  class="121"> MELLOULECH</option>
+                  <option value="12" class="122">SIDI ALOUENE</option>
+                  <option value="12" class="123">MAHDIA</option>
+                  <option value="12" class="124">SOUASSI</option>
+                  <option value="12" class="125">OULED CHAMAKH</option>
+                  <option value="12" class="126">BOU MERDES</option>
+                  <option value="12" class="127">CHORBANE</option>
+                  <option value="12" class="128">KSOUR ESSAF</option>
+                  <option value="12" class="129">HBIRA</option>
+                  <option value="12" class="1210">LA CHEBBA</option>
+                  <option value="12" class="1211">EL JEM</option>
+
+                   <option value="13" class="131">BORJ EL AMRI</option>
+                  <option value="13" class="132">JEDAIDA</option>
+                  <option value="13" class="133">OUED ELLIL</option>
+                  <option value="13" class="134" >TEBOURBA</option>
+                  <option value="13" class="135">EL BATTAN</option>
+                  <option value="13" class="136">MANNOUBA</option>
+                  <option value="13" class="137">MORNAGUIA</option>
+                  <option value="13" class="138">DOUAR HICHER</option>
+
+
+                   <option value="14" class="141">HOUMET ESSOUK</option>
+                    <option value="14" class="142">MEDENINE SUD</option>
+                    <option value="14" class="143">BENI KHEDACHE</option>
+                    <option value="14" class="144">SIDI MAKHLOUF</option>
+                    <option value="14" class="145">MIDOUN</option>
+                    <option value="14" class="146">ZARZIS</option>
+                    <option value="14" class="147">MEDENINE NORD</option>
+                    <option value="14" class="148">BEN GUERDANE</option>
+                    <option value="14" class="149">AJIM</option>
+
+
+                    <option value="15" class="151">SAYADA LAMTA BOU HAJAR</option>
+                    <option value="15" class="152">KSIBET EL MEDIOUNI</option>
+                    <option value="15" class="153">KSAR HELAL</option>
+                    <option value="15" class="154">JEMMAL</option>
+                    <option value="15" class="155">SAHLINE</option>
+                    <option value="15" class="156">MONASTIR</option>
+                    <option value="15" class="157">MOKNINE</option>
+                    <option value="15" class="158">OUERDANINE</option>
+                    <option value="15" class="159">TEBOULBA</option>
+                    <option value="15" class="1510">ZERAMDINE</option>
+                    <option value="15" class="1511">BEKALTA</option>
+                    <option value="15" class="1512">BEMBLA</option>
+                    <option value="15" class="1513">BENI HASSEN</option>
+
+                    <option value="16" class="161">KORBA</option>
+                    <option value="16" class="162">SOLIMAN</option>
+                    <option value="16" class="163">TAKELSA</option>
+                    <option value="16" class="164">MENZEL BOUZELFA</option>
+                    <option value="16" class="165">MENZEL TEMIME</option>
+                    <option value="16" class="166">NABEUL</option>
+                    <option value="16" class="167">BENI KHIAR</option>
+                    <option value="16" class="168">BENI KHALLED</option>
+                    <option value="16" class="169">HAMMAMET</option>
+                    <option value="16" class="1610">EL HAOUARIA</option>
+                    <option value="16" class="1611">KELIBIA</option>
+                    <option value="16" class="1612">GROMBALIA</option>
+                    <option value="16" class="1613">EL MIDA</option>
+                    <option value="16" class="1614">BOU ARGOUB</option>
+                    <option value="16" class="1615">DAR CHAABANE ELFEHRI</option>
+                    <option value="16" class="1616">HAMMAM EL GHEZAZ</option>
+
+
+                    <option value="17">EL HENCHA</option>
+                    <option value="17">ESSKHIRA</option>
+                    <option value="17">GHRAIBA</option>
+                    <option value="17">EL AMRA</option>
+                    <option value="17">BIR ALI BEN KHELIFA</option>
+                    <option value="17">AGAREB</option>
+                    <option value="17">SFAX VILLE</option>
+                    <option value="17">SAKIET EDDAIER</option>
+                    <option value="17">MAHRAS</option>
+                    <option value="17">MENZEL CHAKER</option>
+                    <option value="17">SFAX EST</option>
+                    <option value="17">SFAX SUD</option>
+                    <option value="17">JEBENIANA</option>
+                    <option value="17">KERKENAH</option>
+                    <option value="17">SAKIET EZZIT</option>
+
+
+                     <option value="18">BEN OUN</option>
+                    <option value="18">BIR EL HAFFEY</option>
+                    <option value="18">JILMA</option>
+                    <option value="18">CEBBALA</option>
+                    <option value="18">OULED HAFFOUZ</option>
+                    <option value="18">MEZZOUNA</option>
+                    <option value="18">REGUEB</option>
+                    <option value="18">SIDI BOUZID OUEST</option>
+                    <option value="18">SOUK JEDID</option>
+                    <option value="18">SIDI BOUZID EST</option>
+                    <option value="18">MAKNASSY</option>
+                    <option value="18">MENZEL BOUZAIENE</option>
+
+                    <option value="19">SILIANA SUD</option>
+                    <option value="19">SIDI BOU ROUIS</option>
+                    <option value="19">SILIANA NORD</option>
+                    <option value="19">GAAFOUR</option>
+                    <option value="19">KESRA</option>
+                    <option value="19">LE KRIB</option>
+                    <option value="19">BOU ARADA</option>
+                    <option value="19">BARGOU</option>
+                    <option value="19">MAKTHAR</option>
+                    <option value="19">ROHIA</option>
+                    <option value="19">EL AROUSSA</option>
+
+                    <option value="20">SIDI BOU ALI</option>
+                    <option value="20">SIDI EL HENI</option>
+                    <option value="20">SOUSSE JAOUHARA</option>
+                    <option value="20">SOUSSE RIADH</option>
+                    <option value="20">SOUSSE VILLE</option>
+                    <option value="20">BOU FICHA</option>
+                    <option value="20">AKOUDA</option>
+                    <option value="20">HAMMAM SOUSSE</option>
+                    <option value="20">KALAA ESSGHIRA</option>
+                    <option value="20">KONDAR</option>
+                    <option value="20">MSAKEN</option>
+                    <option value="20">ENFIDHA</option>
+                    <option value="20">HERGLA</option>
+                    <option value="20">KALAA EL KEBIRA</option>
+                    <option value="20">SOUSSE</option>
+
+
+                     <option value="21">TATAOUINE SUD</option>
+                      <option value="21">BIR LAHMAR</option>
+                      <option value="21">DHEHIBA</option>
+                      <option value="21">GHOMRASSEN</option>
+                      <option value="21">TATAOUINE NORD</option>
+                      <option value="21">REMADA</option>
+                      <option value="21">SMAR</option>
+
+
+                    <option value="22">DEGUECHE</option>
+                    <option value="22">TOZEUR</option>
+                    <option value="22">HEZOUA</option>
+                    <option value="22">NEFTA</option>
+                    <option value="22">TAMEGHZA</option>
+
+
+                    <option value="23">EL MENZAH</option>
+                    <option value="23">EL HRAIRIA</option>
+                    <option value="23">EL KABBARIA</option>
+                    <option value="23">EL KRAM</option>
+                    <option value="23">BAB SOUIKA</option>
+                    <option value="23">CARTHAGE</option>
+                    <option value="23">CITE EL KHADRA</option>
+                    <option value="23">BAB BHAR</option>
+                    <option value="23">LA MARSA</option>
+                    <option value="23">EZZOUHOUR</option>
+                    <option value="23">JEBEL JELLOUD</option>
+                    <option value="23">SIDI EL BECHIR</option>
+                    <option value="23">LA GOULETTE</option>
+                    <option value="23">LE BARDO</option>
+                    <option value="23">EL OMRANE</option>
+                    <option value="23">EL OMRANE SUPERIEUR</option>
+                    <option value="23">EL OUERDIA</option>
+                    <option value="23">ETTAHRIR</option>
+                    <option value="23">SIDI HASSINE</option>
+                    <option value="23">ESSIJOUMI</option>
+                    <option value="23">LA MEDINA</option>
+
+                    <option value="24">ENNADHOUR</option>
+                    <option value="24">EL FAHS</option>
+                    <option value="24">BIR MCHERGA</option>
+                    <option value="24">ZAGHOUAN</option>
+                    <option value="24">HAMMAM ZRIBA</option>
+                    <option value="24">SAOUEF</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+
+    <br>
+
+    <div class="row">
+
+      <div class="col-lg-8">
+        <div class="row">
+          <div class="col-lg-4">
+            <label> <b>Irrégation</b> </label>
+            <div class="input-group">
+              <div id="radioset">
+
+                  <input type="radio" value="Oui" name="irrigation"  [(ngModel)]="irrigation" style="padding-left:15px;" checked="checked"><label for="irr1"
+                  style="margin-right:10px;"><span style="padding:5px;">Oui</span></label>
+                <input type="radio" value="Non" name="irrigation"  [(ngModel)]="irrigation"  style="padding-left:15px;"><label
+                  for="irr2"><span style="padding:5px;">Non</span></label>             
+
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4">
+            <label> <b>Siège</b> </label>
+            <div class="input-group">
+              <div id="radioset">
+                  <input type="radio" value="Oui" name="siege"  [(ngModel)]="siege"  checked="checked"><label for="siege1" style="margin-right:10px;"><span
+                    style="padding:5px;">Oui</span></label>
+                <input type="radio" value="Non"  name="siege"  [(ngModel)]="siege"><label for="siege2"><span
+                    style="padding:5px;">Non</span></label>
+     
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <label> <b>Biologique</b> </label>
+            <div class="input-group">
+              <div id="radioset">
+                  <input type="radio"  value="Oui" name="biologique"  [(ngModel)]="biologique" checked="checked"><label for="bio1" style="margin-right:10px;"><span
+                    style="padding:5px;">Oui</span></label>
+                <input type="radio"  value="Non" name="biologique"  [(ngModel)]="biologique"  ><label for="bio2"><span
+                    style="padding:5px;">Non</span></label>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <label> <b>Type Finance</b> </label>
+        <div class="input-group">
+          <div id="radioset">
+              <input type="radio" value="Investissement" name="typeFinance"  [(ngModel)]="typeFinance" checked="checked"><label for="finance1" style="margin-right:10px;"><span
+                style="padding:5px;" >Investissement</span></label>
+              <input type="radio" value="Don avec contre partie" name="typeFinance"   [(ngModel)]="typeFinance"><label for="finance2"><span
+                style="padding:5px;">Don avec contre partie</span></label>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <br>
+
+
+    <div class="row">
+
+      <div class="col-lg-3">
+        <label> <b>Superface à exploiter</b> </label>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-expand"></i>
+          </div>
+          <input type="number" name="SuperfaceE" ngModel class="form-control" value='' required=true>
+        </div>
+      </div>
+
+
+      <div class="col-lg-3">
+        <label> <b>Superface totale</b> </label>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-expand"></i>
+          </div>
+          <input type="number" name="SuperfaceT" ngModel class="form-control" value='' required=true>
+        </div>
+      </div>
+
+
+      <div class="col-lg-3">
+        <label> <b>Montant Totale</b> </label>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-usd"></i>
+          </div>
+          <input type="number" name="montant" ngModel class="form-control" value='' required=true>
+        </div>
+      </div>
+
+
+      <div class="col-lg-3">
+        <label> <b>Montant Minimale</b> </label>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-usd"></i>
+          </div>
+          <input type="number" name="montantM" ngModel class="form-control" value='' required=true>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <div class="panel-footer">
+
+    <div class="text-right">
+      <button class="btn btn-lg" style="background-color:#60b67a;color: #ffffff" type="submit"><i class="fa fa-check-square"></i> Créer </button>
+    </div>
+
+  </div>
+</form>
+</div>

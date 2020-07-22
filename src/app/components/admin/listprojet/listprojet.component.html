@@ -1,0 +1,62 @@
+<div class="panel-heading">
+  List Projet
+</div>
+<div class="panel-body">
+
+<div class="cart-page-container">
+
+  <div class="cart-page-content"  >
+    <input type="text" class="form-control" id="recherhe" name="recherche" placeholder="recherche par Etat projet/Nom projet/type projet/emailUser " (keyup)="filter($event)" >
+    <table >
+      <thead>
+      <tr>
+        <th>Photo</th>
+        <th>Etat</th>
+        <th>Type</th>
+        <th>MontantTotal</th>
+        <th>User publier</th>
+        <th>Affecter un ingénieur</th>
+
+        <th>Action</th>
+
+      </tr>
+  </thead>
+  <tbody *ngFor="let cart of products2;let i = index">
+
+       <tr>
+        <td>                <img class="cart-item-thumbnail" [src]=getSantizeUrl(cart.photoProjet) style="width: 50px;
+          height: 50px;"/> <span>{{cart.nomProjet}}</span>
+      </td>
+        <td>{{cart.etat}}</td>
+        <td>{{cart.type}}</td>
+        <td>{{cart.montantTotal}}</td>
+         <td>{{cart.emailUser}}</td>
+         <td >
+          <select class="form-control select2" *ngIf="cart.etat != 'affecte'" type="text" (change)="onChange($event.target.value)">
+            <option style="display:none" value="">Séléctionner un ingénieur </option>
+            <!-- <div *ngIf="gouv == 1"> -->
+              <option value={{cart.id}} *ngFor="let cart of userFinal;let i = index" class="11" >{{cart.name}}</option>
+            
+            </select>
+            <label *ngIf="cart.etat == 'affecte'">{{cart.nameIng}}</label>
+
+        </td>
+        
+        <td><button  *ngIf="cart.etat!='accepter'"  class="btn-project" (click)="removeFromCart(cart)">delete</button>
+         <button  *ngIf="cart.etat=='en attend'"   class="btn-project" (click)="accepte(cart)">accepter </button>
+         <button    class="btn-project" (click)="detaille(cart)">detaille</button>
+         <button  *ngIf="cart.etat != 'affecte'" (click)="affecter(cart)" [routerLink]="['/ingenieur']" class="btn-project" >Affecter</button>
+          <td>
+
+
+        </td>
+
+      </tr>
+   </tbody>
+      </table>
+       
+       
+       
+  </div>
+  
+</div></div>

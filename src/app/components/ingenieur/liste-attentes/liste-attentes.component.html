@@ -1,0 +1,77 @@
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+    
+    <!-- color: #333;
+    background: black;
+    border-color: #ddd; -->
+<div class="panel-heading">
+   <h3> List Projet</h3>
+</div>
+<div class="panel-body">
+
+<div class="cart-page-container">
+  
+  <div class="cart-page-content"  >
+   <!--     <input type="text" class="form-control" id="recherhe" name="recherche" placeholder="recherche par Etat projet/Nom projet/type projet/emailUser " (keyup)="filter($event)" >
+    <br>
+    -->
+      <table datatable id="dataTable" [dtOptions]="dtOptions" class="row-border hover" style="width:100%" >
+        <thead>
+        <tr>
+          <th>Photo</th>
+          <th>Etat</th>
+          <th>Type</th>
+          <th style="width:10%">MontantTotal</th>
+          <th style="width:20%">User publier</th>
+          <th style="width:10%">Affecter un ingénieur</th>
+
+          <th>Action</th>
+
+        </tr>
+    </thead>
+    <tbody *ngFor="let cart of products2;let i = index">
+
+         <tr>
+          <td>                <img class="cart-item-thumbnail" [src]=getSantizeUrl(cart.photoProjet) style="width: 50px;
+            height: 50px;"/> <span>{{cart.nomProjet}}</span>
+        </td>
+          <td>{{cart.etat}}</td>
+          <td>{{cart.type}}</td>
+          <td>{{cart.montantTotal}}</td>
+           <td>{{cart.emailUser}}</td>
+           <td >
+            <select class="form-control select2" *ngIf="cart.etat != 'affecte'" type="text" (change)="onChange($event.target.value)">
+              <option style="display:none" value="">Séléctionner un ingénieur </option>
+              <!-- <div *ngIf="gouv == 1"> -->
+                <option value={{cart.name}} *ngFor="let cart of products2;let i = index" class="11" >{{cart.name}}</option>
+              
+              </select>
+              <label *ngIf="cart.etat == 'affecte'">{{cart.ingenieur}}</label>
+
+          </td>
+          
+          <td><button  class="btn-project" (click)="refuser(cart)"  mat-button>Refuser</button>
+            <button    style="margin-left: 5px; margin-right: 5px;"   class="btn-project" (click)="openDialog(cart)" mat-button >Accepter </button>
+           <button    class="btn-project" (click)="detaille(cart)"  mat-button>detaille</button>
+             </td>
+
+        </tr>
+     </tbody>
+        </table>
+         
+         
+         
+    </div>
+    
+  </div>
+ 
+
+</div>

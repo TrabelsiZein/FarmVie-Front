@@ -1,0 +1,53 @@
+<div class="panel-heading">
+    List Projet
+</div>
+<div class="panel-body">
+
+<div class="cart-page-container">
+  
+    <div class="cart-page-content"  >
+    
+ 
+     <input type="text" class="form-control" id="recherhe" name="recherche" placeholder="recherche par Etat projet/Nom projet/type projet/emailUser " (keyup)="filter($event)" >
+     <br>
+     <table >
+        <thead>
+        <tr>
+          <th>Photo</th>
+          <th>Etat</th>
+          <th>Type</th>
+          <th>MontantTotal</th>
+          <th>User publier</th>
+ 
+          <th>Action</th>
+
+        </tr>
+    </thead>
+    <tbody *ngFor="let cart of products2;let i = index">
+
+         <tr>
+          <td>                <img class="cart-item-thumbnail" [src]=getSantizeUrl(cart.photoProjet) style="width: 50px;
+            height: 50px;"/> <span>{{cart.nomProjet}}</span>
+        </td>
+          <td>{{cart.etat}}</td>
+          <td>{{cart.type}}</td>
+          <td>{{cart.montantTotal}}</td>
+           <td>{{cart.emailUser}}</td>
+         
+          
+          <td>
+           <button    class="btn-project" (click)="detaille(cart)">detaille</button>
+             <td>
+
+
+          </td>
+
+        </tr>
+     </tbody>
+        </table>
+         
+         
+         
+    </div>
+    
+  </div></div>

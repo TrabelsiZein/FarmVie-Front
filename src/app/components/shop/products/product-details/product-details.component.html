@@ -1,0 +1,81 @@
+<div class="container">
+   <div class="details-wrapper sec-padding" >
+      <div fxLayout="column" fxFlex="100" fxFlex.gt-sm="80">
+         <div fxLayout="row wrap" fxFlex="100" fxFlex.gt-md="100" fxFlex.gt-sm="100">
+             <div fxFlex="100" fxFlex.gt-md="50" fxFlex.md="45">
+                 <!-- <mat-card class="product-image">
+                    <div *ngFor="let image of product.pictures">
+                       <ngx-image-zoom   [thumbImage]="image" [fullImage]="image" zoomMode="hover"
+                   ></ngx-image-zoom>
+                    </div>
+                 </mat-card> -->
+                 <mat-card class="product-image">
+                   <div>
+                      <button mat-icon-button  fxHide="false" fxHide.gt-md>
+                         <mat-icon>fullscreen</mat-icon>
+                      </button>
+                      <img [src]="imagebig"/>
+                   </div>
+                   <a (click)="openProductDialog(product, bigProductImageIndex)" style="cursor: pointer;"><mat-icon>zoom_in</mat-icon></a>
+                </mat-card>
+
+ 
+              </div>
+              <div fxFlex="100" fxFlex.gt-md="50" fxFlex.md="55" ngClass.gt-sm="px-3 m-0" ngClass.sm="mt-2" ngClass.xs="mt-2">
+
+                 <div class="product-right">
+                    <div class="product-details">
+                       <h2>{{product.nomProjet}}</h2>
+                        <h3 class="price" *ngIf="!productsService?.catalogMode">{{product.montantMin | currency:productsService?.currency:'symbol'}}</h3>
+                     </div>
+                    <div class="py-1 mt-15">
+                       <p>
+                          <span class="text-muted fw-500">Avalibility: </span>
+                          <span class="avalibility" *ngIf="counter <= product.stock"><span>In Stock</span></span>
+                          <span class="avalibility" *ngIf="counter > product.stock"><span>Out of Stock</span></span>
+                       </p>
+                    </div>
+                     
+                    <div class="buttons mt-20"  >
+                        <button mat-raised-button color="primary" class="btn-project" (click)="buyNow(product, counter)">Financer</button>
+                    </div>
+                 </div>
+              </div>
+         </div>
+
+         <div class="review-wrapper" fxFlex="100"  fxFlex.md="75">
+           <mat-card>
+              <mat-tab-group [@.disabled]="true" [selectedIndex]="0">
+              <mat-tab label="Détails du projet">
+                 <div class="full-desc lh">
+                    <p class="text-muted">{{product.description}}</p>
+                 </div>
+              </mat-tab>
+              <mat-tab label="Détails du financement">
+               <div class="full-desc lh">
+                  <p class="start center"><span>Montant total à collecter :</span> {{product.montantTotal}} DT</p>
+                  <p class="start center"><span>Montant collecter :</span> {{product.montantRecu}} DT</p>
+
+               </div>
+                
+              </mat-tab>
+              <mat-tab label="Rapport de l'expert agricole">
+                  
+              </mat-tab>
+              <mat-tab label="Documents">
+                
+            </mat-tab>
+              </mat-tab-group>
+           </mat-card>
+        </div>
+
+         
+      </div>
+      
+
+   </div>
+   <!-- <div class="py-2 mt-2">
+      <h2>Related Products</h2>
+      <div class="divider"></div>
+      <app-products-carousel [products]="relatedProducts"></app-products-carousel>
+      </div> -->

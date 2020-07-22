@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="row">
+            <div class="col-md-9">
+                <div class="wrapper wrapper-content animated fadeInUp">
+                    <div class="ibox">
+                        <div class="ibox-content">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="m-b-md">
+                                         <h2>{{product.nomProjet}}</h2>
+                                    </div>
+                                    <dl class="dl-horizontal">
+                                        <dt>Status:</dt> <dd><span class="label label-primary">{{product.etat}}</span></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <dl class="dl-horizontal">
+    
+                                        <dt>Creer par :</dt> <dd>{{product.emailUser}}</dd>
+                                        <dt>Gouvernorat:</dt> <dd>  {{product.gevernorat}}</dd>
+                                        <dt>Delegation:</dt> <dd><a href="#" class="text-navy"> {{product.delegation}}</a> </dd>
+                                        <dt>Date de creation:</dt> <dd>     {{product.datadeployment}} </dd>
+                                        <dt>Biologique :</dt> <dd>     {{product.biologique}} </dd>
+                                        <dt>Montant Recu:</dt> <dd>     {{product.montantRecu}} </dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-7" id="cluster_info">
+                                    <dl class="dl-horizontal">
+    
+                                        <dt>Superficie Totale:</dt> <dd>{{product.superficieT}}</dd>
+                                        <dt>Superficie à exploiter:</dt> <dd> 	{{product.superficieE}} </dd>
+                                        <dt>Siège  :</dt><dd >{{product.siege}}</dd>
+                                        <dt>Irrigation  :</dt><dd >{{product.irrigation}}</dd>
+                                        <dt>Montant Total  :</dt><dd >{{product.montantTotal}}</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                           
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="wrapper wrapper-content project-manager">
+                    <h4>Description de projet</h4>
+                    <p class="small">
+                       {{product.description}}
+                    </p>
+                    <p class="small font-bold">
+                        <span><i class="fa fa-circle text-warning"></i>  {{product.typeFinance}}</span>
+                    </p>
+                    <h5>Catégorie de projet</h5>
+                    <ul class="tag-list" style="padding: 0">
+                        <li><a href="#"><i class="fa fa-tag"></i> {{product.type}}</a></li>
+                    </ul>
+                 <!--   <h5>Veuillez en</h5>
+                    <ul class="list-unstyled project-files">
+                        <li><a href="#"><i class="fa fa-file"></i> Project_document.docx</a></li>
+                        <li><a href="#"><i class="fa fa-file-picture-o"></i> Logo_zender_company.jpg</a></li>
+                        <li><a href="#"><i class="fa fa-stack-exchange"></i> Email_from_Alex.mln</a></li>
+                        <li><a href="#"><i class="fa fa-file"></i> Contract_20_11_2014.docx</a></li>
+                    </ul>
+                    <div class="text-center m-t-md">
+                        <a href="#" class="btn btn-xs btn-primary">Add files</a>
+                        <a href="#" class="btn btn-xs btn-primary">Report contact</a>
+    
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div  class="col-md-11">
+            <input type="checkbox" id="checkContrat" (change)="toggleEditable($event)">   
+            <label for="checkContrat" style="margin-left: 1%; color: red;">    Je confirme tous les informations du projets</label>
+
+            </div>
+            <div  class="col-md-1">
+                <button type="button" class="btn btn-primary" [disabled]="confirmtest"  (click)=" onSubmit()">Confirmer</button>
+
+            </div>
+        </div>
+    </div>

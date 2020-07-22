@@ -1,0 +1,34 @@
+<div class="product-dialog">
+
+    <div class="close-btn-outer">
+      <button mat-mini-fab color="warn" (click)="close()"><mat-icon>close</mat-icon></button>
+    </div>
+    <div mat-dialog-content>
+      <div fxLayout="row wrap" >
+          <h2>liste investiseur</h2>
+        <table >
+            <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Email</th>
+               <th>Montant</th>
+     
+            </tr>
+        </thead>
+        <tbody *ngFor="let cart of ui;let i = index">
+    
+             <tr>
+               
+              <td>{{cart[1]}}</td>
+              <td>{{cart[2]}}</td>
+              <td>{{cart[0]}} DT</td>
+               
+    
+            </tr>
+         </tbody>
+            </table>
+      </div>
+    </div>
+  
+    </div>
+  

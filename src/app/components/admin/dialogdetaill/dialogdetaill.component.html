@@ -1,0 +1,48 @@
+<div class="product-dialog">
+
+    <div class="close-btn-outer">
+      <button mat-mini-fab color="warn" (click)="close()"><mat-icon>close</mat-icon></button>
+    </div>
+    <div mat-dialog-content>
+      <div fxLayout="row wrap" >
+          <div fxFlex="100" fxFlex.gt-sm="50">
+              <div class="swiper-container h-100">
+                  <div class="swiper-wrapper">
+                    <img [src]="product.photoProjet" alt="" class="img-fluid">
+                  </div>
+  
+              </div>
+          </div>
+          <div fxFlex="100" fxFlex.gt-sm="50" ngClass.gt-sm="px-2 m-0" ngClass.sm="mt-2" ngClass.xs="mt-2">
+            <div class="product-right">
+                <div class="product-details">
+                    <h2 class="mb-10">{{product.nomProjet}}  </h2>
+                   <h3 class="price mb-10">{{product.montantTotal | currency:productsService?.currency:'symbol' }}</h3>
+                  <div class="discription">
+                    <p class="bold">Product details</p>
+                   <p class="text-muted productDescription">description: {{product.description}}</p>  
+                  </div>
+              </div>
+              <div class="py-1 mt-15">
+                  <p>
+                    <span class="text-muted fw-500">Avalibility: </span>
+                  <span class="avalibility" *ngIf="counter <= product.stock"><span>In Stock</span></span>
+                  <span class="avalibility" *ngIf="counter > product.stock"><span class="red">Out of Stock</span></span>
+                </p>
+              </div>
+           
+              <div class="buttons mt-20">
+                   <button *ngIf="product.etat=='accepter'" mat-raised-button color="primary" class="btn-project" (click)="buyNow(product)">List investiseurs</button>
+                   <button *ngIf="product.etat=='en attend'" mat-raised-button color="primary" class="btn-project" (click)="update(product)">Update</button>
+
+              </div>
+            </div>
+  
+  
+  
+          </div>
+      </div>
+    </div>
+  
+    </div>
+  

@@ -1,0 +1,137 @@
+<div class="product-dialog">
+
+    <div class="close-btn-outer">
+      <button mat-mini-fab color="warn" (click)="close()"><mat-icon>close</mat-icon></button>
+    </div>
+    <div mat-dialog-content>
+      <div fxLayout="row wrap" >
+            
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+
+
+
+
+<div class="container row">
+  
+  <div class="col-md-12">
+
+      <h1>Ajouter Article</h1>
+
+  </div>
+
+</div>
+ 
+<div class="container row">
+
+  <div class="form-group">
+
+    <form #f="ngForm" (ngSubmit)="onUpload(f)" novalidate>
+
+
+      <label for="nom">governement</label>
+      <input type="text" class="form-control" name="gevernorat"    [(ngModel)]="gevernorat"  >
+      <label for="nom">delegation</label>
+      <input type="text" class="form-control" name="delegation"    [(ngModel)]="delegation"   >
+      <label for="nom">surperfaceE</label>
+      <input type="text" class="form-control" name="surperfaceE"    [(ngModel)]="surperfaceE"   >
+      <label for="nom">surperfaceT</label>
+      <input type="text" class="form-control" name="superficieT"    [(ngModel)]="superficieT"   >
+      <label for="nom">irrigation</label>
+
+      <mat-radio-group aria-label="Select an option" name="irrigation"   [(ngModel)]="irrigation">
+        <mat-radio-button value="oui" [checked]="true" >oui</mat-radio-button>
+        <mat-radio-button value="non">non</mat-radio-button>
+      </mat-radio-group>
+      <br>
+      <label for="nom">siege</label>
+
+      <mat-radio-group aria-label="Select an option" name="siege"   [(ngModel)]="siege">
+        <mat-radio-button value="oui" [checked]="true" >oui</mat-radio-button>
+        <mat-radio-button value="non">non</mat-radio-button>
+      </mat-radio-group>
+      
+       
+     <br>
+      <label >solo</label>
+
+      <input type="file" (change)="onFileChanged($event)" id="image" name="image"  >
+      <br>
+      <label for="nom">name projet</label>
+      <input type="text" class="form-control" name="nomProjet"    [(ngModel)]="nomProjet"   >
+      <label >photo projet</label>
+
+      <input type="file" (change)="onFileChanged2($event)" id="image" name="image"  >
+      <br>
+      <label for="nom">type projet</label>
+
+      <select matNativeControl required name="type"   [(ngModel)]="type" > 
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+       <br>
+      <label for="nom">biologique</label>
+
+      <mat-radio-group aria-label="Select an option" name="biologique"   [(ngModel)]="biologique">
+        <mat-radio-button value="oui" [checked]="true" >oui</mat-radio-button>
+        <mat-radio-button value="non">non</mat-radio-button>
+      </mat-radio-group>
+ <br>
+      
+      <label for="nom">descrption</label>
+      <input type="text" class="form-control" name="description"    [(ngModel)]="description"   >
+      <label for="nom">montant total</label>
+      <input type="text" class="form-control" name="montanttotal"    [(ngModel)]="montanttotal"   >
+      <label for="nom">montant min</label>
+      <input type="text" class="form-control" name="montantMin"    [(ngModel)]="montantMin"   >
+      <br>
+      <label for="nom">typeFinance</label>
+
+      <mat-radio-group aria-label="Select an option" name="typeFinance"   [(ngModel)]="typeFinance">
+        <mat-radio-button value="invertissement" [checked]="true" >invertissement</mat-radio-button>
+        <mat-radio-button value="don avec contre partie">don avec contre partie</mat-radio-button>
+      </mat-radio-group>
+ <br>
+           
+       
+       
+   
+
+ 
+
+ 
+        <button   >Submit</button>
+    </form>
+
+
+ </div>
+</div>
+ 
+<hr />
+</div>
+</div>
+ 
+
+
+
+ 
+          
+      </div>
+    </div>
+  
+    </div>
+  

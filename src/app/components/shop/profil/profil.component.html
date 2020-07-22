@@ -1,0 +1,155 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <div class="container">
+    <div class="row my-2">
+        <div class="col-lg-8 order-lg-2">
+            <div class="review-wrapper" fxFlex="100"  fxFlex.md="75">
+                <mat-card>
+                   <mat-tab-group [@.disabled]="true" [selectedIndex]="0">
+                   <mat-tab label="Ma farme en ligne">
+                      <div class="full-desc lh">
+                        <div class="col-md-6">
+                            <h6>Recent badges</h6>
+                           
+                            <hr>
+                            <span class="badge badge-primary"><i class="fa fa-user"></i> 900 Followers</span>
+                            <span class="badge badge-success"><i class="fa fa-cog"></i> 43 Forks</span>
+                            <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
+                        </div>
+                        <div class="col-md-12" *ngIf="cartList">
+                             <table class="table">
+                                <thead class="thead-dark">
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nom</th>
+                                    <th scope="col">pourcentage</th>
+                                    <th scope="col">i:investe/p:publier</th>
+                                    <th scope="col">Etat</th>
+
+                                    <th scope="col">Action</th>
+                                  </tr>
+                                </thead>
+                                <tbody  *ngFor="let cart of cartList;let i = index">
+                                    
+
+                                  <tr *ngIf="cart.photoProjet">
+                                    <th scope="row">{{i}}</th>
+                                    <td><img  class="image-holder" [src]=getSantizeUrl(cart.photoProjet) style="width: 50px;
+                                        height: 50px;"/><span>{{cart.nomProjet}}</span>
+                                         </td>
+                                    <td><progress-bar [progress]="cart.pourcentage " [color-degraded]="{'0': '#000000',  '40': '#4FC3F7', '70': '#8BC34A'}">>
+                                    </progress-bar></td>
+                                    <td>{{cart.ip}}</td>
+                                    <td>{{cart.etat}}</td>
+
+                                    <td>                 <button mat-raised-button color="primary" class="btn-project" (click)="buyNow(cart.idProjet)">VIEW DETAIL</button>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                     
+                                </tbody>
+                              </table>
+                               
+                        </div>
+                       </div>
+                   </mat-tab>
+                   <mat-tab label="Ajouter des fonds">
+                    <div class="review-wrapper" fxFlex="100"  fxFlex.md="75">
+                        <mat-card>
+                           <mat-tab-group [@.disabled]="true" [selectedIndex]="0">
+                           <mat-tab label="Carte bancaire">
+                            <div class="mainOrder-wrapper pl-15" fxFlex="100" fxFlex.gt-md="30" fxFlex.md="30">
+                                <div class="main-order " >
+                            <div class="order-box">
+                          
+                              <table class="table">
+
+                                <tr>
+                                    <td>
+                                        montant
+                                    </td>
+                                    <td>
+                                        <input type="text">
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="content">
+                                            <div class="icon-box" style="margin-left: 40%;">
+                                                <i class="material-icons" >
+                                                  attach_money
+                                                    </i>
+                                            </div>
+                                              
+                                          </div>
+                                    </td>
+                                    <td>
+                                        <input type="text"> <input type="text"> <input type="text">
+                                    </td>
+
+
+                                </tr>
+                              </table>
+                        
+                               
+                            
+                          <div class="order">
+                            <button class="btn-project" mat-raised-button color="accent" type="submit" (click)="addToCart(product)">Ajouter des fonds</button>
+                          </div>
+                             </div>
+                             </div>
+                             </div>
+
+                               </mat-tab>
+                                 <mat-tab label="Virement bancaire">
+                                      <div class="main-order " >
+                                          </div>
+                                          </mat-tab>
+                               </mat-tab-group>
+                               </mat-card>
+                    </div>
+                   
+                     
+                   </mat-tab>
+                   <mat-tab label="Retirer des fonds">
+                    <div class="full-desc lh">
+                        <h6>Attention  
+                                
+                        </h6> 
+                        <p>
+
+                            Vous deuez ajouter un compte bancaire pour pouvoir retirer des fonds.
+                            Vous devez d'abord renseigner votre adresse avant de pouvoir ajouter un compte bancaire.
+                        </p>
+     
+                    </div>
+                       
+                   </mat-tab>
+                    
+                   </mat-tab-group>
+                </mat-card>
+             </div>
+        </div>
+        <div class="col-lg-4 order-lg-1 text-center">
+            <img src="{{user.photo}}" class="mx-auto img-fluid img-circle d-block" alt="avatar"style="width: 250px;
+            height: 250px;">
+                        <h5 class="mb-3">{{user.name}} {{user.prenom}}</h5>
+                               <h6>Mail: {{user.email}}  
+                                
+                              </h6>                         
+                                   
+                             <h6>
+                                contact: +216 {{user.numtel}}                            </h6>
+
+             
+            <label class="custom-file">
+                <input type="file" id="file" class="custom-file-input" (change)="updatephoto($event)">
+                <span class="custom-file-control">Choose file</span>
+            </label>
+
+        </div>
+    </div>
+</div>

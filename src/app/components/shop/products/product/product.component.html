@@ -1,0 +1,35 @@
+<div class="product-item" *ngIf="product.photoProjet" >
+   <mat-card fxLayout="column">
+     <div class="product-img">
+         <a class="product-link"  >
+            
+           <img [src]=getSantizeUrl(product.photoProjet) alt="" (click)="openProductDialog2(product)"  >
+        </a>
+     </div>
+      <div class="product-info-wrapper">
+         <div class="title-wrap">
+            <h4>{{product.nomProjet}}</h4>
+         </div>
+         <div class="stars">
+            <progress-bar   [progress]="product.pourcentage " [color-degraded]="{'0': '#000000',  '40': '#4FC3F7', '70': '#8BC34A'}">>
+            </progress-bar>
+         </div>
+         <div  class="product-info-wrapper" fxLayout="row" fxLayoutAlign="space-between center">
+            
+            <p> collecté/Totale:  {{product.montantRecu }}/{{product.montantTotal }} DT  
+         </p>
+           </div>
+         
+         <div class="price-wrap" fxLayout="row" fxLayoutAlign="space-between center">
+           
+           </div>
+           
+         <div class="icons" fxLayout="column">
+            <a (click)="addToWishlist(product)"><mat-icon class="mat-icon-lg mat-icon material-icons mr-10">favorite_border</mat-icon></a>
+            <a (click)="openProductDialog(product)"><mat-icon>remove_red_eye</mat-icon></a>
+            <a (click)="addToCompare(product)"><mat-icon>cached</mat-icon></a>
+          </div>
+      </div>
+   </mat-card>
+ </div>
+ 
