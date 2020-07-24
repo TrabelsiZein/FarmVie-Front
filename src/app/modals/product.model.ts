@@ -13,6 +13,8 @@ export class Product {
   name?: string;
   nameU?: string;
   emailUser?: string;
+  nbjr?: number;
+
   nameIng?:string;
   price?: number;
   salePrice?: number;

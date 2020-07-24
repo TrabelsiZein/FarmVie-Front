@@ -17,13 +17,16 @@ export class ProfilComponent implements OnInit {
   user:UserModule
   selectedFile: File;
   editt=1
+  totaleI=0
   public cartList:Array<Product>=null;
-
+  public cartList2:Array<Product>=null;
+  tottt = 59
   constructor(private sanitizer: DomSanitizer,private userservice:UserService,private token:TokenStorage,private httpclient :HttpClient,private router: Router) { }
 
   ngOnInit(): void {
     this.getdetailprofil()
 this.getuserarticl()
+this.getuserarticl2()
 console.log(this.cartList)
   }
 
@@ -66,13 +69,37 @@ location.reload()
     this.userservice.getarticleuser().subscribe(res => {
       console.log("resss"+res)
 
+
       
  this.cartList=res as Array<Product>;
+ this.cartList.forEach(element => {
+  this.totaleI=this.totaleI+ parseInt(element.montantMin);
+});
 console.log(this.cartList)
 });
 await this.delay(1000);
 
  
+})();
+
+
+
+}
+getuserarticl2(){
+  (async () =>{
+  this.userservice.getarticleuser2().subscribe(res => {
+    console.log("resss"+res)
+
+
+    
+this.cartList2=res as Array<Product>;
+this.cartList2.forEach(element => {
+this.totaleI=this.totaleI+ parseInt(element.montantMin);
+});
+ });
+await this.delay(1000);
+
+
 })();
 
 
@@ -87,4 +114,5 @@ public getSantizeUrl(url : string) {
 delay(ms: number) {
   return new Promise( resolve => setTimeout(resolve, ms) );
 }
+ 
 }

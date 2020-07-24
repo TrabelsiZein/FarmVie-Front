@@ -26,7 +26,7 @@ tokenn
     if(this.tokenn!=null){
        var decoded = jwt_decode(this.tokenn); 
       console.log(decoded.aud);
-      if((decoded.aud=='[ROLE_ADMIN]')||(decoded.aud=='[ROLE_INGENIEUR]'))  {
+      if(decoded.aud=='[ROLE_ADMIN]')  {
 return true  
         
   
@@ -39,6 +39,14 @@ return true
       'Authorization':this.token.getToken()
     })
    return  this.httpClient.get('http://localhost:8080/projet/getcourentArticles' , { headers: headers})
+
+   
+  }
+  getarticleuser2(){
+    let headers = new HttpHeaders({
+      'Authorization':this.token.getToken()
+    })
+   return  this.httpClient.get('http://localhost:8080/projet/getcourentArticles2' , { headers: headers})
 
    
   }

@@ -16,8 +16,7 @@
                       </button>
                       <img [src]="imagebig"/>
                    </div>
-                   <a (click)="openProductDialog(product, bigProductImageIndex)" style="cursor: pointer;"><mat-icon>zoom_in</mat-icon></a>
-                </mat-card>
+                 </mat-card>
 
  
               </div>
@@ -26,17 +25,84 @@
                  <div class="product-right">
                     <div class="product-details">
                        <h2>{{product.nomProjet}}</h2>
-                        <h3 class="price" *ngIf="!productsService?.catalogMode">{{product.montantMin | currency:productsService?.currency:'symbol'}}</h3>
+                        <!--<div  fxLayout="column">
+                        <p>Nombre de jours restants :<span style="margin-left: 5px;background-color: #FFF9C4;font-weight: bold;" class="nbjr2">J-{{product.nbjr}}  </span><br>  <span style="margin-left: 15px; background-color: #ECEFF1; font-weight: bold;" class="nbjr">{{product.typeFinance}} </span></p>
+                    </div>
+                        <h3 class="price" *ngIf="!productsService?.catalogMode"> Montant collecté:  {{product.montantRecu }} DT </h3> -->
+                        
+                     
                      </div>
                     <div class="py-1 mt-15">
                        <p>
-                          <span class="text-muted fw-500">Avalibility: </span>
-                          <span class="avalibility" *ngIf="counter <= product.stock"><span>In Stock</span></span>
+                           <span class="avalibility" *ngIf="counter <= product.stock"><span>In Stock</span></span>
                           <span class="avalibility" *ngIf="counter > product.stock"><span>Out of Stock</span></span>
                        </p>
+                       <table class="table">
+                        <thead style="color:azure; background-color: #60B67A;">
+                          <tr>
+                             <th scope="col" colspan="2">Caractéristiques</th>
+                              
+                          </tr>
+                        </thead>
+                        <tbody   >
+                            
+                           <tr  >
+                             
+                            
+                              <td>Filière</td>
+                              <td>{{product.type}}</td>
+                               
+                            </tr>  
+                            <tr  >
+                             
+                            
+                              <td>Biologique?</td>
+                              <td>{{product.biologique}}</td>
+                               
+                            </tr> 
+                            <tr  >
+                             
+                            
+                              <td>Gouvernorat</td>
+                              <td>{{product.gevernorat}}</td>
+                               
+                            </tr>
+                          <tr  >
+                             
+                            
+                            <td>Montant Collecté </td>
+                            <td>{{product.montantRecu}} DT</td>
+                             
+                          </tr>
+                          <tr  >
+                             
+                            
+                           <td>Financement demandé</td>
+                           <td>{{product.montantTotal}} DT</td>
+                            
+                         </tr>  
+                         <tr  >
+                             
+                            
+                           <td>Types de financement</td>
+                           <td>{{product.typeFinance}}</td>
+                            
+                         </tr>  
+                         <tr  >
+                             
+                            
+                           <td>Compte à rebours</td>
+                           <td>J-{{product.nbjr}}</td>
+                            
+                         </tr> 
+                          
+                        
+                                              
+                        </tbody>
+                      </table>
                     </div>
                      
-                    <div class="buttons mt-20"  >
+                    <div class="buttons mt-20" style="margin-left: 15%;" >
                         <button mat-raised-button color="primary" class="btn-project" (click)="buyNow(product, counter)">Financer</button>
                     </div>
                  </div>

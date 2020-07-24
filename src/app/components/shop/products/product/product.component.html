@@ -3,20 +3,33 @@
      <div class="product-img">
          <a class="product-link"  >
             
-           <img [src]=getSantizeUrl(product.photoProjet) alt="" (click)="openProductDialog2(product)"  >
+           <img [src]=getSantizeUrl(product.photoProjet) alt=""   >
+            
         </a>
      </div>
       <div class="product-info-wrapper">
+         <div class="butt3">
+
+            <button type="submit" class="butt4" (click)="openProductDialog2(product)">Participer!</button>
+         </div>
          <div class="title-wrap">
             <h4>{{product.nomProjet}}</h4>
+            <div class="iconn" fxLayout="column">
+
+            <h6> <mat-icon [inline]="true"  >location_on</mat-icon> {{product.gevernorat}}</h6>
+            </div>
+        
+         </div>
+         <div  fxLayout="column">
+             <p><span style="margin-left: 5px; font-weight: bold; " class="nbjr2">J-{{product.nbjr}}  </span>  <span style="margin-left: 15px;font-weight: bold; " class="nbjr">{{product.typeFinance}} </span></p>
          </div>
          <div class="stars">
-            <progress-bar   [progress]="product.pourcentage " [color-degraded]="{'0': '#000000',  '40': '#4FC3F7', '70': '#8BC34A'}">>
+            <progress-bar   [progress]="product.pourcentage " [color-degraded]="{'0': '#60B67A'}">>
             </progress-bar>
          </div>
          <div  class="product-info-wrapper" fxLayout="row" fxLayoutAlign="space-between center">
             
-            <p> collecté/Totale:  {{product.montantRecu }}/{{product.montantTotal }} DT  
+            <p> Montant collecté:  {{product.montantRecu }}  DT  
          </p>
            </div>
          
@@ -25,10 +38,12 @@
            </div>
            
          <div class="icons" fxLayout="column">
-            <a (click)="addToWishlist(product)"><mat-icon class="mat-icon-lg mat-icon material-icons mr-10">favorite_border</mat-icon></a>
-            <a (click)="openProductDialog(product)"><mat-icon>remove_red_eye</mat-icon></a>
-            <a (click)="addToCompare(product)"><mat-icon>cached</mat-icon></a>
-          </div>
+            
+
+            <a (click)="addToWishlist(product)"><mat-icon class="mat-icon-lg mat-icon material-icons mr-10">favorite</mat-icon></a>
+            <a (click)="openProductDialog(product)"><mat-icon>face</mat-icon></a>
+           </div>
+           
       </div>
    </mat-card>
  </div>

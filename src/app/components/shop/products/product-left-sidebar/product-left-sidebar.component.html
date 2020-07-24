@@ -1,76 +1,110 @@
  
 
     
-
-<div class="left-sidebar-wrapper sec-padding" *ngIf="allItems">
-<div class="container">
-  <div class="sidebar-wrapper" fxLayout='row' fxLayout.lt-md="column" >
-      <div fxFlex="25" fxFlex.lt-sm="100" class="filter-sidenav" perfectScrollbar>
-          <div class="toggles-wrapper" fxLayout="column" fxLayout.lt-md="column">
-              <div class="toggles" fxFlex.lt-md="100">
-                  <mat-accordion  (change)="Filter($event)">
-                    <mat-expansion-panel>
-                        <mat-expansion-panel-header>
-                          <mat-panel-title>
-                              <span>Categories</span>
-                          </mat-panel-title>
-                        </mat-expansion-panel-header>
-                    <app-categories></app-categories>
-                      </mat-expansion-panel>
-                      
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                              <mat-panel-title>
-                                  <span>Price</span>
-                              </mat-panel-title>
-                            </mat-expansion-panel-header>
-
-                            <app-price (priceFilters)="updatePriceFilters($event)"></app-price>
-                          </mat-expansion-panel>
-                    </mat-accordion>
-              </div>
-                  <div class="popular-products" fxFlex.lt-md="100">
-                    <app-popular-products></app-popular-products>
-                  </div>
-          </div>
-
-          </div>
-        <div fxFlex="75" fxFlex.lt-sm="100" class="all-products" ngClass.gt-sm="p-left">
-            <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center" fxHide.lt-md="true" class="filter-row mat-elevation-z1 text-muted">
-                <button *ngIf="!sidenavOpen" mat-icon-button (click)="sidenav.toggle()">
-                    <mat-icon>more_vert</mat-icon>
-                </button>
-
-                <div>
-
-                    <button mat-icon-button (click)="changeViewType('list', 100)">
-                        <mat-icon>view_list</mat-icon>
-                    </button>
-                    <button mat-icon-button (click)="changeViewType('list', 33.3)">
-                        <mat-icon>view_module</mat-icon>
-                    </button>
-                    <button mat-icon-button (click)="changeViewType('list', 25)">
-                        <mat-icon>view_comfy</mat-icon>
-                    </button>
-                </div>
-              </div>
-              <div [@Animation]="animation" fxLayout="row wrap" class="products-wrapper">
-                  <div *ngFor="let products of allItems | orderBy:sortByOrder | paginate: { itemsPerPage: 12, currentPage: page  }" fxFlex="100" [fxFlex.gt-sm]="viewCol" fxFlex.sm="50" class="col">
-                     <div class="product-box" >
-                        <app-product [product]="products"></app-product>
-                     </div>
-                  </div>
-              </div>
-
-              <div *ngIf="products.length > 0" fxLayout="row wrap ">
-                  <div fxFlex="100">
-                      <mat-card class="p-0 text-center no-shadow">
-                          <pagination-controls class="product-pagination" autoHide="true" maxSize="5" (pageChange)="onPageChanged($event)"></pagination-controls>
-                      </mat-card>
-                  </div>
-              </div>
-            </div>
-  </div>
-</div>
-</div>
  
+<div class="left-sidebar-wrapper sec-padding" *ngIf="allItems">
+    <div class="container"  >
+      <div class="sidebar-wrapper" fxLayout='row' fxLayout.lt-md="column" >
+          <div   fxFlex.lt-sm="100" class="filter-sidenav" perfectScrollbar>
+              <div class="toggles-wrapper" fxLayout="column" fxLayout.lt-md="column">
+                   
+                       
+              </div>
+    
+              </div>
+            <div   fxFlex.lt-sm="100" class="all-products" ngClass.gt-sm="p-left" *ngIf="allItems">
+                <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center" fxHide.lt-md="true" class="filter-row mat-elevation-z1 text-muted" style="width: 100%;" id="navbar">
+                    <button *ngIf="!sidenavOpen" mat-icon-button (click)="sidenav.toggle()">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+    
+                    <div fxLayout="row" (change)="test($event)" >
+                        <select  id="type" name="type"  >
+                               <option value=""  >    Show All </option> 
+                              <option> <a [routerLink]="['/products/apiculture']">apiculture</a></option> 
+                              <option><li><a [routerLink]="['/products/hortiliculture']">hortiliculture</a></li></option> 
+                              <option><li><a [routerLink]="['/products/aquaculture et peche']">aquaculture et peche</a></li></option>
+                              <option><li><a [routerLink]="['/products/elevage']">elevage</a></li></option> 
+                              <option><li><a [routerLink]="['/products/produit laitiers']">produit laitiers</a></li></option> 
+                              <option><li><a [routerLink]="['/products/epicerie']">epicerie</a></li></option> 
+                              <option> <li><a [routerLink]="['/products/boissons']">boissons</a></li></option>
+                              <option> <li><a [routerLink]="['/products/innovation']">innovation</a></li></option>
+                        
+                           </select>
+                           <select class="form-control select2" style="width: 100%;" type="text" name="gouv" id="gouv" ngModel >
+                            <option   value="">toute la Tunisie </option>
+     
+                            <option  value="Ariana" > Ariana</option>
+                            <option  value="beja" > Béja</option>
+                            <option  value="Ben Arous" > Ben Arous</option>
+                            <option  value="Bizerte" > Bizerte</option>
+                            <option  value="Gabès" > Gabès</option>
+                            <option  value="Gafsa" > Gafsa</option>
+                            <option  value="Jendouba" > Jendouba</option>
+                            <option  value="8" > Kairouan</option>
+                            <option  value="9" > Kasserine</option>
+                            <option  value="10" > Kébili</option>
+                            <option  value="11" > Le Kef</option>
+                            <option  value="12" > Mahdia</option>
+                            <option  value="13" > La Manouba</option>
+                            <option  value="14" > Médenine</option>
+                            <option  value="15" > Monastir</option>
+                            <option  value="16" > Nabeul</option>
+                            <option  value="17" > Sfax</option>
+                            <option  value="18" > Sidi Bouzid</option>
+                            <option  value="19" > Siliana</option>
+                            <option  value="20" > Sousse</option>
+                            <option  value="21" > Tataouine</option>
+                            <option  value="22" > Tozeur</option>
+                            <option  value="23" > Tunis</option>
+                            <option  value="24" > Zaghouan</option>
+                          </select>
+                           <select name="cars" id="cars">
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="mercedes">Mercedes</option>
+                            <option value="audi">Audi</option>
+                          </select>
+                        <!-- <mat-accordion  (change)="Filter($event)">
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                  <mat-panel-title>
+                                      <span>Categories</span>
+                                  </mat-panel-title>
+                                </mat-expansion-panel-header>
+                            <app-categories></app-categories>
+                              </mat-expansion-panel>
+                        </mat-accordion>
+                        <mat-accordion> 
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                      <mat-panel-title>
+                                          <span>Price</span>
+                                      </mat-panel-title>
+                                    </mat-expansion-panel-header>
+        
+                                    <app-price (priceFilters)="updatePriceFilters($event)"></app-price>
+                                  </mat-expansion-panel>
+                            </mat-accordion> -->
+                    </div>
+                  </div>
+                  <div   fxLayout="row wrap" class="products-wrapper">
+                      <div *ngFor="let products of allItems | orderBy:sortByOrder | paginate: { itemsPerPage: 12, currentPage: page  }" fxFlex="100" [fxFlex.gt-sm]="viewCol" fxFlex.sm="100" class="col">
+                         <div class="product-box" >
+                            <app-product [product]="products"></app-product>
+                         </div>
+                      </div>
+                  </div>
+    
+                  <div *ngIf="products.length > 0" fxLayout="row wrap ">
+                      <div fxFlex="100">
+                          <mat-card class="p-0 text-center no-shadow">
+                              <pagination-controls class="product-pagination" autoHide="true" maxSize="2" (pageChange)="onPageChanged($event)"></pagination-controls>
+                          </mat-card>
+                      </div>
+                  </div>
+                </div>
+      </div>
+    </div>
+    </div>
+     

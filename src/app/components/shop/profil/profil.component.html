@@ -1,31 +1,66 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- <div class="container">
+ <div class="container" style="margin-bottom: 3%;">
     <div class="row my-2">
-        <div class="col-lg-8 order-lg-2">
+      <div class="col-2 text-center">
+        <img src="{{user.photo}}" class="mx-auto img-fluid img-circle d-block" alt="avatar"style="width: 100px;
+        height: 100px;">
+                    <h5 class="mb-3">{{user.name}} {{user.prenom}}</h5>
+                           <h6>Mail: {{user.email}}  
+                            
+                          </h6>                         
+                               
+                         <h6>
+                            contact: +216 {{user.numtel}}                            </h6>
+
+         
+        <label class="custom-file">
+            <input type="file" id="file" class="custom-file-input" (change)="updatephoto($event)">
+            <span class="custom-file-control">Choose file</span>
+        </label>
+
+    </div>
+        <div class="col-10">
             <div class="review-wrapper" fxFlex="100"  fxFlex.md="75">
                 <mat-card>
                    <mat-tab-group [@.disabled]="true" [selectedIndex]="0">
-                   <mat-tab label="Ma farme en ligne">
+                   <mat-tab label="Ma ferme">
                       <div class="full-desc lh">
-                        <div class="col-md-6">
-                            <h6>Recent badges</h6>
-                           
-                            <hr>
-                            <span class="badge badge-primary"><i class="fa fa-user"></i> 900 Followers</span>
-                            <span class="badge badge-success"><i class="fa fa-cog"></i> 43 Forks</span>
-                            <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
+                         
+                        <div class="col" *ngIf="cartList">
+                        
+                             <div class="row" style="margin-bottom: 2%;margin-top: 2%;">
+                              <div class="col-md-4" style="height:13% ;width:15% ;text-align: center;">
+                                <button  style="text-align: center;border-radius: 50%; width: 15%; height: 13%;border-color: #60B67A; background-color: #60B67A;color:#ffffff;">{{totaleI}} DT</button>
+
+                              </div>
+                              <div class="col-md-4"  style="height:13% ;width:15% ;text-align: center;">
+                                <button   style="text-align: center;border-radius: 50%; width: 15%; height: 13%;border-color: #60B67A; background-color: #60B67A;color:#ffffff;"> {{totaleI+51}} DT</button>
+
+                              </div>
+                              <div class="col-md-4"  style="height:13% ;width:15% ;text-align: center;">
+                                <button   style="text-align: center;border-radius: 50%; width: 15%; height: 13%;border-color: #60B67A; background-color: #60B67A;color:#ffffff;">{{tottt}}    <br>  %</button>
+
+                              </div>
+                            </div>
+                        <div class="row">
+                          <h4 class="col-md-4" style="text-align: center;">Total Investissements  </h4> 
+                          <h4 class="col-md-4" style="text-align: center;"> Mes revenus </h4>
+                          <h4 class="col-md-4" style="text-align: center;">Rendement global  </h4> 
                         </div>
-                        <div class="col-md-12" *ngIf="cartList">
+
                              <table class="table">
-                                <thead class="thead-dark">
+                                <thead  style="color:azure; background-color: #60B67A;">
                                   <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Nom</th>
-                                    <th scope="col">pourcentage</th>
-                                    <th scope="col">i:investe/p:publier</th>
-                                    <th scope="col">Etat</th>
+                                    <th scope="col"  >Nom</th>
+                                    <th scope="col">Secteur</th>
+                                    <th scope="col">Région</th>
+                                    <th scope="col">Investissement</th>
+                                    <th scope="col">%dans projet</th>
+                                    <th scope="col">Revenus générés</th>
+                                    <th scope="col">Rendement cumulé</th>
 
                                     <th scope="col">Action</th>
                                   </tr>
@@ -35,15 +70,21 @@
 
                                   <tr *ngIf="cart.photoProjet">
                                     <th scope="row">{{i}}</th>
-                                    <td><img  class="image-holder" [src]=getSantizeUrl(cart.photoProjet) style="width: 50px;
-                                        height: 50px;"/><span>{{cart.nomProjet}}</span>
-                                         </td>
-                                    <td><progress-bar [progress]="cart.pourcentage " [color-degraded]="{'0': '#000000',  '40': '#4FC3F7', '70': '#8BC34A'}">>
-                                    </progress-bar></td>
-                                    <td>{{cart.ip}}</td>
-                                    <td>{{cart.etat}}</td>
+                                    <td>  <!-- <img  class="image-holder" [src]=getSantizeUrl(cart.photoProjet) style="width: 50px;
+                                        height: 50px;"/> -->
+                                        <span>{{cart.nomProjet}}</span>  </td>
+                                    <!-- <td><progress-bar [progress]="cart.pourcentage " [color-degraded]="{'0': '#000000',  '40': '#4FC3F7', '70': '#8BC34A'}">>
+                                    </progress-bar></td> -->
+                                    <td>Production végétale</td>
+                                    <td>{{cart.gevernorat}}</td>
+                                    <td>{{cart.montantMin}} DT</td>
+                                    <td>{{cart.pourcentage}} %</td>
+                                    <td>60 dt</td>
 
-                                    <td>                 <button mat-raised-button color="primary" class="btn-project" (click)="buyNow(cart.idProjet)">VIEW DETAIL</button>
+                                    <td>18%</td>
+
+                                    <td>                                                    <button type="submit" class="ped-btn-footer2" (click)="buyNow(cart.idProjet)">Détails</button>
+
                                     </td>
                                   </tr>
                                   <tr>
@@ -53,6 +94,55 @@
                                
                         </div>
                        </div>
+                   </mat-tab>
+                   <mat-tab label="Mes campagnes"  >
+                    <div class="full-desc lh">
+                      <div class="col" *ngIf="cartList2">
+                        
+                    
+
+                           <table class="table">
+                              <thead style="color:azure; background-color: #60B67A;">
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">Nom</th>
+                                  <th scope="col">Secteur</th>
+                                  <th scope="col">Région</th>
+                                  <th scope="col">Financement demandé</th>
+                                  <th scope="col">Fonds collectés</th>
+                                  <th scope="col">Barre de progression</th>
+ 
+                                  <th scope="col">Action</th>
+                                </tr>
+                              </thead>
+                              <tbody  *ngFor="let cart of cartList2;let i = index">
+                                  
+
+                                <tr *ngIf="cart.photoProjet">
+                                  <th scope="row">{{i}}</th>
+                                  <td>  <!-- <img  class="image-holder" [src]=getSantizeUrl(cart.photoProjet) style="width: 50px;
+                                      height: 50px;"/> -->
+                                      <span>{{cart.nomProjet}}</span>  </td>
+                                  <!-- <td><progress-bar [progress]="cart.pourcentage " [color-degraded]="{'0': '#000000',  '40': '#4FC3F7', '70': '#8BC34A'}">>
+                                  </progress-bar></td> -->
+                                  <td>Production végétale</td>
+                                  <td>{{cart.gevernorat}}</td>
+                                  <td>{{cart.montantTotal}} DT</td>
+                                  <td>{{cart.montantRecu}} DT</td>
+                                  <td>{{cart.pourcentage}}%</td>
+ 
+                                  <td>                  
+                                    <button type="submit" class="ped-btn-footer2" (click)="buyNow(cart.idProjet)">Détails</button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                   
+                              </tbody>
+                            </table>
+                             
+                      </div>
+                     </div>
+                       
                    </mat-tab>
                    <mat-tab label="Ajouter des fonds">
                     <div class="review-wrapper" fxFlex="100"  fxFlex.md="75">
@@ -87,7 +177,9 @@
                                           </div>
                                     </td>
                                     <td>
-                                        <input type="text"> <input type="text"> <input type="text">
+                                        <input type="text">
+                                        <br> <input type="text"  style="margin-top: 3%;margin-bottom: 3%;"> 
+                                        <br><input type="text">
                                     </td>
 
 
@@ -133,23 +225,6 @@
                 </mat-card>
              </div>
         </div>
-        <div class="col-lg-4 order-lg-1 text-center">
-            <img src="{{user.photo}}" class="mx-auto img-fluid img-circle d-block" alt="avatar"style="width: 250px;
-            height: 250px;">
-                        <h5 class="mb-3">{{user.name}} {{user.prenom}}</h5>
-                               <h6>Mail: {{user.email}}  
-                                
-                              </h6>                         
-                                   
-                             <h6>
-                                contact: +216 {{user.numtel}}                            </h6>
-
-             
-            <label class="custom-file">
-                <input type="file" id="file" class="custom-file-input" (change)="updatephoto($event)">
-                <span class="custom-file-control">Choose file</span>
-            </label>
-
-        </div>
+       
     </div>
 </div>

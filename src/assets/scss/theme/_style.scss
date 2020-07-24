@@ -235,12 +235,24 @@ li {
 }
 .mt-15 {
   margin-top: 15px !important;
+   th, td {
+    border: 1px solid black;
+    margin-left: 15px;
+
+  }
+   
 }
 .mt-40 {
   margin-top: 40px !important;
 }
 .mt-15 {
   margin-top: 15px;
+   th, td {
+    border: 1px solid black;
+    margin-left: 15px;
+
+  }
+   
 }
 .mt-10 {
   margin-top: 10px !important;
@@ -296,10 +308,12 @@ padding-top: 20px !important;
 width: 100% !important;
     }
 .text-muted {
+  height: max-content;
   color: $grey !important;
-}
+  }
+  
 .sec-padding {
-  padding: 60px 0;
+  padding: 10px 0;
 }
 
 .btn-project {
@@ -455,8 +469,7 @@ line-height: 23px;
 .main-topbar {
   background: $dark-font;
  .top-bar {
-
-     .widget-text {
+      .widget-text {
        a {
          color: $grey3;
          text-decoration: none;
@@ -755,7 +768,7 @@ line-height: 23px;
   //  margin-right: 16px;
   //   }
     .product-item {
-      position: unset;
+      position: f;
       // height: auto;
       height: 260px;
       transition: .4s;
@@ -767,31 +780,66 @@ line-height: 23px;
         .product-img {
           background: $baners-background;
           img {
-            max-width: 180px;
+            max-width: 100%;
             margin-bottom: 12px;
             display: block;
               margin-left: auto;
               margin-right: auto;
+              &:hover {
+                filter: blur(1px);
+              }
           }
         }
         .product-info-wrapper {
           padding: 15px;
+           .nbjr{
+             background-color: #ECEFF1;
+           }
+           .nbjr2{
+            background-color: #FFF9C4;
+            
+          }
           .icons {
             position: absolute;
-            top: 30px;
-            right: 10px;
-            opacity: 0;
-            transition: all 0.5s ease;
-            a {
-              color: $grey10;
-              cursor: pointer;
-              transition: 0.5s ease;
-              margin-bottom: 5px;
-              &:hover {
-                color: $theme-main;
-              }
-            }
-          }
+                    top: 5px;
+                    right: 1px;
+                    opacity: 0;
+                    transition: all 0.5s ease;
+                    .butt{
+                      position: absolute;
+                      top: 90%;
+                      right: 100%;
+                      margin-right: 90%;
+                       transition: all 0.5s ease;
+                       .butt2{
+                        border: 1px solid $theme-main;
+                        color: #fff !important;
+                        cursor: pointer;
+                        display: inline-block;
+                        font-size: 14px;
+                        font-weight: 700;
+                         padding: 0px 10px;
+                        text-align: center;
+                         transition: all 0.4s ease 0s;
+                        z-index: 222;
+                        background: $theme-main;
+                        width: 100%;
+                        border-radius: 3px;
+                        line-height: 25px;
+                       }
+                       
+
+                    }
+                    a {
+                      color: #FFF9C4;
+                      cursor: pointer;
+                      transition: 0.5s ease;
+                      margin-bottom: 5px;
+                      &:hover {
+                        color: #F7333D;
+                      }
+                    }
+                  }
 
 
           .stars {
@@ -854,6 +902,12 @@ line-height: 23px;
               overflow: hidden;
               font-weight: 500;
             }
+            .iconn{
+              font-size: 36px;
+
+
+            }
+           
           }
         }
         &:hover {
@@ -865,7 +919,7 @@ line-height: 23px;
              background: $theme-main;
             }
           }
-         }
+          }
     }
     button.swipe-arrow {
       position: absolute;
@@ -1161,6 +1215,24 @@ line-height: 23px;
 /***************************************
 *  Carousel-2 styles
 ****************************************/
+.ped-btn-footer2 {
+  border: 1px solid $theme-main;
+  color: #fff !important;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+   padding: 0px 10px;
+  text-align: center;
+   text-transform: uppercase;
+  transition: all 0.4s ease 0s;
+  z-index: 222;
+  background: $theme-main;
+  width: 100%;
+  border-radius: 3px;
+  line-height: 25px;
+ 
+}
 .carousel-2 {
   padding-top: 25px;
   .ctn-box {
@@ -2065,28 +2137,64 @@ line-height: 23px;
                 .product-img {
                   background: $gray-lighter;
                   img {
-                    max-width: 180px;
+                    max-width: 100%;
                     margin-bottom: 12px;
                     display: block;
                       margin-left: auto;
                       margin-right: auto;
+                      &:hover {
+                        filter: blur(1px);
+                      }
                   }
                 }
                 .product-info-wrapper {
                   padding: 15px;
+                  .butt3{
+                    position: absolute;
+                    bottom: 70%;
+                    left: 40%;
+                    opacity: 0;
+
+                      transition: all 0.5s ease;
+                     .butt4{
+                      border: 1px solid $theme-main;
+                      color: #fff !important;
+                      cursor: pointer;
+                      display: inline-block;
+                      font-size: 14px;
+                      font-weight: 700;
+                       padding: 0px 10px;
+                      text-align: center;
+                       transition: all 0.4s ease 0s;
+                      z-index: 222;
+                      background: $theme-main;
+                      width: 100%;
+                      border-radius: 3px;
+                      line-height: 25px;
+                     }
+                     
+
+                  }
+                  .nbjr{
+                    background-color: #ECEFF1;
+                  }
+                  .nbjr2{
+                   background-color: #FFF9C4;
+                 }
                   .icons {
                     position: absolute;
                     top: 30px;
                     right: 10px;
                     opacity: 0;
                     transition: all 0.5s ease;
+                   
                     a {
-                      color: $grey10;
+                      color: #FFF9C4;
                       cursor: pointer;
                       transition: 0.5s ease;
                       margin-bottom: 5px;
                       &:hover {
-                        color: $theme-main;
+                        color: #F7333D;
                       }
                     }
                   }
@@ -2152,17 +2260,28 @@ line-height: 23px;
                       overflow: hidden;
                       font-weight: 500;
                     }
+                    .iconn{
+                      font-size: 36px;
+        
+        
+                    }
+                  
                   }
                 }
                 &:hover {
                   .icons {
                    opacity: 1;
                   }
+                  .butt3{
+                    opacity: 1;
+
+                  }
                   .price-wrap {
                     a {
                      background: $theme-main;
                     }
                   }
+
                  }
             }
 
@@ -2303,8 +2422,7 @@ line-height: 23px;
 
 .menu-container4 {
   background: $white;
-  border-top: 1px solid #e5e5e5;
-  .main-menu {
+     .main-menu {
     margin: 0 auto;
     a.mat-button {
       text-transform: uppercase;
@@ -3792,6 +3910,12 @@ line-height: 23px;
   .product-right {
     padding: 0 30px;
     .product-details {
+      .nbjr{
+        background-color: #ECEFF1;
+      }
+      .nbjr2{
+       background-color: #FFF9C4;
+     }
       .discription {
         padding-top: 15px;
         padding-bottom: 20px;
