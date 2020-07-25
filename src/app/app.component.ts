@@ -66,6 +66,10 @@ this.test2=2
 console.log(this.test2)
     }
   }
+  else if(this.tokenn==null){
+    this.router.navigateByUrl('/products/all')
+
+  }
   else if(location.href.substr(location.href.length-7)=="account"){
     this.valueLogin=2 ;
 

@@ -1,6 +1,6 @@
 <div class="container">
-   <div class="details-wrapper sec-padding" >
-      <div fxLayout="column" fxFlex="100" fxFlex.gt-sm="80">
+   <div class="details-wrapper sec-padding" style="margin-bottom: 20%;">
+      <div fxLayout="column" fxFlex="100" >
          <div fxLayout="row wrap" fxFlex="100" fxFlex.gt-md="100" fxFlex.gt-sm="100">
              <div fxFlex="100" fxFlex.gt-md="50" fxFlex.md="45">
                  <!-- <mat-card class="product-image">
@@ -102,7 +102,7 @@
                       </table>
                     </div>
                      
-                    <div class="buttons mt-20" style="margin-left: 15%;" >
+                    <div class="pull-right">
                         <button mat-raised-button color="primary" class="btn-project" (click)="buyNow(product, counter)">Financer</button>
                     </div>
                  </div>
@@ -131,6 +131,76 @@
               <mat-tab label="Documents">
                 
             </mat-tab>
+            <div *ngIf="toknn!=null">
+            <mat-tab label="Actualité" >
+                  
+               
+
+               <table >
+                  <tr>
+<td>
+   Resultat brut d'Exploitation
+</td>
+<td>
+   433 225
+</td>
+                  </tr>
+                  <tr>
+<td>
+Beneficer Net
+</td>
+<td>
+28 189
+</td>
+                  </tr>
+                  <tr>
+<td>
+Cash flow
+</td>
+<td>
+11 %
+</td>
+                  </tr>
+                  </table>
+                  </mat-tab>
+               </div>
+
+            <div *ngIf="toknn!=null">
+            <mat-tab label="Actualité" >
+                  
+               
+
+               <table >
+                 <thead>
+                 <tr>
+                   <th>Theme</th>
+                   <th>Description</th>
+                   <th>Photo</th>
+                   <th>Ingénieur</th>
+                   <th>Projet</th>
+                 </tr>
+             </thead>
+             <tbody *ngFor="let cart of Actualites;let i = index">
+         
+                  <tr>
+                   <td style="text-align: center;"> {{cart.subject}}</td>
+                   <td style="text-align: center;">{{cart.description}}</td>
+         
+                   <td style="text-align: center;" > <img class="cart-item-thumbnail" [src]=getSantizeUrl(cart.photo) style="width: 50px;
+                     height: 50px;"/>
+                 </td>
+                   <td style="text-align: center;">{{cart.ingName}}</td>
+                   <td style="text-align: center;">{{cart.projectName}}</td>
+         
+         
+                 </tr>
+              </tbody>
+                 </table>
+
+
+
+            </mat-tab>
+         </div>
               </mat-tab-group>
            </mat-card>
         </div>

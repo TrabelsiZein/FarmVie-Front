@@ -12,7 +12,7 @@
              </div>
              <div  fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
                  <mat-form-field class="w-100">
-                     <input matInput placeholder="Password (required)" #email="ngModel" name="password" [(ngModel)]="password" required>
+                     <input matInput placeholder="Password (required)" #email="ngModel" name="password" type ="password"[(ngModel)]="password" required>
                      <mat-error *ngIf="email.invalid">Please enter a valid message</mat-error>
                    </mat-form-field>
              </div>

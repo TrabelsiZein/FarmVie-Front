@@ -31,15 +31,15 @@ const appRoutes: Routes = [
   }, 
   {
     path: 'datavalidation/:idP',
-    component: DataValidationComponent,canActivate: [AuthGuard] 
+    component: DataValidationComponent, 
   }, 
   {
     path: 'listeattentes',
-    component: ListeAttentesComponent,canActivate: [AuthGuard] 
+    component: ListeAttentesComponent, 
   }, 
   {
     path: 'ingenieur',
-    component: IngenieurComponent,canActivate: [AuthGuard] 
+    component: IngenieurComponent, 
   },
   {
     path: 'detailadmin',
@@ -67,7 +67,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'listacceptes',
-    component: ListeAcceptesComponent,canActivate: [AuthGuard] 
+    component: ListeAcceptesComponent 
   },
   {
     path: '',

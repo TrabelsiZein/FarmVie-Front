@@ -16,7 +16,7 @@ import { MyAccountComponent } from '../pages/my-account/my-account.component';
 import { ProfilComponent } from './profil/profil.component';
 import { CheckoutComponent } from '../pages/checkout/checkout.component';
 import { TokenStorage as AuthGuard } from '../shared/services/token-storage.service';
-
+ 
 
 // Routes
 const routes: Routes = [
@@ -33,6 +33,7 @@ const routes: Routes = [
   canActivate: [AuthGuard] 
 
 },
+ 
 
   { path: 'inscrit', component: InscriptionComponent },
   { path: 'pages/my-account', component: MyAccountComponent },

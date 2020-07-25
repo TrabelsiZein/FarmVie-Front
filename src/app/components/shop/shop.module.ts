@@ -42,7 +42,7 @@ import { CheckoutComponent } from '../pages/checkout/checkout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { DataTablesModule } from 'angular-datatables';
-
+ 
 @NgModule({
   declarations: [
     HomeComponent,
@@ -73,7 +73,8 @@ import { DataTablesModule } from 'angular-datatables';
     InscriptionComponent,
     CheckoutComponent,
     MyAccountComponent,
-    ProfilComponent
+    ProfilComponent,
+     
   ],
   imports: [
     CommonModule,

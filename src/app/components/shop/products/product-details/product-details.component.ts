@@ -8,12 +8,13 @@ import { SwiperDirective, SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { ProductZoomComponent } from './product-zoom/product-zoom.component';
 import { TokenStorage } from 'src/app/components/shared/services/token-storage.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.sass']
+  styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
 
@@ -30,13 +31,14 @@ export class ProductDetailsComponent implements OnInit {
   test:string
   public image: any;
   public zoomImage: any;
-
+  public Actualites ;
   public counter            :   number = 1;
 
   index: number;
   bigProductImageIndex = 0;
 toknn=null
-  constructor(private token :TokenStorage,private httpClient: HttpClient,private route: ActivatedRoute, public productsService: ProductService, public dialog: MatDialog, private router: Router, private cartService: CartService) {
+  constructor(private token :TokenStorage,private sanitizer: DomSanitizer,private httpClient: HttpClient,private route: ActivatedRoute, public productsService: ProductService, public dialog: MatDialog, private router: Router, private cartService: CartService) {
+    
     this.route.params.subscribe(params => {
       const id = +params['id'];
       this.toknn=this.token.getToken()
@@ -49,7 +51,26 @@ toknn=null
           this.imagebig=this.product.photoProjet
           this.imagesmall=this.product.sol
          }
-        );    });
+
+
+         
+        );    
+        let headers = new HttpHeaders({
+          'Authorization': this.token.getToken()
+        })
+
+        console.log(id)
+        this.httpClient.get('http://localhost:8080/actualite/getall/'+id+'/'+11, { headers: headers })
+        .subscribe(res => {
+          console.log('res')
+          console.log(res)
+          this.Actualites = res
+        })
+        console.log("azazaz"+this.Actualites[0][0])
+
+      });
+
+
    }
 
   ngOnInit() {
@@ -181,6 +202,8 @@ public openZoomViewer(){
   });
 }
 
-
+public getSantizeUrl(url: string) {
+  return this.sanitizer.bypassSecurityTrustUrl(url);
+}
 
 }

@@ -31,8 +31,7 @@
           <th>Type</th>
           <th style="width:10%">MontantTotal</th>
           <th style="width:20%">User publier</th>
-          <th style="width:10%">Affecter un ingénieur</th>
-
+ 
           <th>Action</th>
 
         </tr>
@@ -47,16 +46,7 @@
           <td>{{cart.type}}</td>
           <td>{{cart.montantTotal}}</td>
            <td>{{cart.emailUser}}</td>
-           <td >
-            <select class="form-control select2" *ngIf="cart.etat != 'affecte'" type="text" (change)="onChange($event.target.value)">
-              <option style="display:none" value="">Séléctionner un ingénieur </option>
-              <!-- <div *ngIf="gouv == 1"> -->
-                <option value={{cart.name}} *ngFor="let cart of products2;let i = index" class="11" >{{cart.name}}</option>
-              
-              </select>
-              <label *ngIf="cart.etat == 'affecte'">{{cart.ingenieur}}</label>
-
-          </td>
+          
           
           <td><button  class="btn-project" (click)="refuser(cart)"  mat-button>Refuser</button>
             <button    style="margin-left: 5px; margin-right: 5px;"   class="btn-project" (click)="openDialog(cart)" mat-button >Accepter </button>

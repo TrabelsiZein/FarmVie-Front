@@ -101,6 +101,32 @@ export class ListprojetComponent implements OnInit {
 
 
   };
+  publier  = o => {
+    o as Product
+    //   let dialogRef = this.dialog.open(DialogdetaillComponent, {
+    //     data: o,
+    //     panelClass: 'product-dialog',
+    // });
+    // dialogRef.afterClosed().subscribe(product => {
+    //   if(product){
+    //     this.router.navigate(['/products', o.id, o.nomProjet]);
+    //   }
+    // });
+    console.log(o.idProjet)
+     let headers = new HttpHeaders({
+      'Authorization':this.token.getToken()
+    })
+    this.httpClient.post('http://localhost:8080/projet/accref/'+o.idProjet+'/publie',null, { headers: headers })
+       
+    .subscribe(
+      data => console.log('success', data),
+      error => console.log('oops', error)
+    
+    );
+    
+
+
+  };
   accepte = o => {
     o as Product
     let headers = new HttpHeaders({

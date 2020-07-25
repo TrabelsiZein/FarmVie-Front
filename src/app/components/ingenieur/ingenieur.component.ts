@@ -40,7 +40,7 @@ constructor(private dialog: MatDialog, private sanitizer: DomSanitizer,private r
     let headers = new HttpHeaders({
       'Authorization': this.token.getToken()
     })
-    this.httpClient.get('http://localhost:8080/projet/getProjetAttenteIng/'+this.idIng+'/publie', { headers: headers })
+    this.httpClient.get('http://localhost:8080/projet/getProjetAttenteIng2/'+this.idIng+'/publie', { headers: headers })
     .subscribe(res => {
       this.Projects = res
       this.ProjectId = res[0].idProjet

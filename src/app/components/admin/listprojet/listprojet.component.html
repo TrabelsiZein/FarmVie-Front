@@ -32,20 +32,22 @@
         <td>{{cart.montantTotal}}</td>
          <td>{{cart.emailUser}}</td>
          <td >
-          <select class="form-control select2" *ngIf="cart.etat != 'affecte'" type="text" (change)="onChange($event.target.value)">
+          <select class="form-control select2" *ngIf="cart.etat != 'affecte'&&cart.etat!='accepte' &&cart.etat!='publie'" type="text" (change)="onChange($event.target.value)">
             <option style="display:none" value="">Séléctionner un ingénieur </option>
             <!-- <div *ngIf="gouv == 1"> -->
               <option value={{cart.id}} *ngFor="let cart of userFinal;let i = index" class="11" >{{cart.name}}</option>
             
             </select>
-            <label *ngIf="cart.etat == 'affecte'">{{cart.nameIng}}</label>
+            <label *ngIf="cart.etat == 'affecte' || cart.etat=='accepte' || cart.etat=='publie' ">{{cart.nameIng}}</label>
 
         </td>
         
-        <td><button  *ngIf="cart.etat!='accepter'"  class="btn-project" (click)="removeFromCart(cart)">delete</button>
+        <td><button  *ngIf="cart.etat!='accepte'"  class="btn-project" (click)="removeFromCart(cart)">delete</button>
          <button  *ngIf="cart.etat=='en attend'"   class="btn-project" (click)="accepte(cart)">accepter </button>
          <button    class="btn-project" (click)="detaille(cart)">detaille</button>
-         <button  *ngIf="cart.etat != 'affecte'" (click)="affecter(cart)" [routerLink]="['/ingenieur']" class="btn-project" >Affecter</button>
+         <button  *ngIf="cart.etat != 'affecte' &&cart.etat!='accepte' &&cart.etat!='publie'" (click)="affecter(cart)"   class="btn-project" >Affecter</button>
+               <button  *ngIf="cart.etat == 'accepte'" (click)="publier(cart)"   class="btn-project" >Publier</button>
+
           <td>
 
 

@@ -97,7 +97,7 @@ $.fn['dataTable'].ext.search.push((settings, data, dataIndex) => {
     })
    
 
-      this.sub = this.httpClient.get('http://localhost:8080/projet/getProjetAttenteIng/'+this.id+'/affecte', { headers: headers })
+      this.sub = this.httpClient.get('http://localhost:8080/projet/getProjetAttenteIng2/'+this.id+'/affecte', { headers: headers })
 
       .subscribe(res => {
         this.products = res as Array<Product>;
@@ -239,7 +239,7 @@ $.fn['dataTable'].ext.search.push((settings, data, dataIndex) => {
     let headers = new HttpHeaders({
       'Authorization':this.token.getToken()
     })
-    this.httpClient.post('http://localhost:8080/projet/updateIng/'+o.idProjet+'/'+this.valueIng+'/affecte',null, { headers: headers })
+    this.httpClient.post('http://localhost:8080/projet/updateIng/'+o.idProjet+'/affecte',null, { headers: headers })
        
     .subscribe(
       data => console.log('success', data),
